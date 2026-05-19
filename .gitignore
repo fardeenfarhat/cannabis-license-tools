@@ -1,0 +1,45 @@
+# Secrets
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# SQLite databases (run state, regenerable)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Scraper output / hits — large, regenerable, may contain raw PDFs
+cannabis_hits/nj/
+cannabis_hits/va/
+nj_cannabis/hits/
+nj_cannabis/output/
+nj_rfp_monitor/hits/
+nj_rfp_monitor/data/first_run_summary.csv
+
+# Workspace JSON dumps (deep-dive outputs)
+nj_rfp_monitor/hits/deep_dives/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

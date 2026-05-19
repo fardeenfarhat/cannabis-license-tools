@@ -1,0 +1,89 @@
+municipality,county,allows_retail_class5,classes_allowed,notes,official_url,portal_platform
+Folsom,Atlantic,yes,"1,2,3,4,5,6",,http://www.folsomborough.com,unknown
+Galloway Township,Atlantic,yes,"1,2,3,5,6",,,
+Hamilton Township,Atlantic,yes,"1,2,3,4,5,6",,,
+East Rutherford,Bergen,yes,"1,2,3,4,5",,https://www.eastrutherfordnj.net,agendacenter
+Leonia,Bergen,yes,"1,2,3,4,5",,https://www.leonianj.gov,agendacenter
+Bergenfield,Bergen,yes,"1,2,3,4",no retail class 5,https://bergenfield.com,unknown
+Cliffside Park,Bergen,yes,5,retail only,https://www.cliffsideparknj.gov,unknown
+North Arlington,Bergen,yes,"1,2,3,4,5,6",,https://www.northarlington.org,unknown
+Oakland,Bergen,yes,"1,2,3,4,5,6",,,
+Oradell,Bergen,yes,"1,2,3,4,5,6",,http://www.oradell.org,agendacenter
+South Hackensack,Bergen,yes,"1,2,3,4,5,6",,https://www.southhackensacknj.org,unknown
+Teaneck,Bergen,yes,"1,2,3,4,5,6",,https://www.teanecknj.gov,iqm2
+Wallington,Bergen,yes,"1,2,3,4,5,6",,https://www.wallingtonnj.org,agendacenter
+Bass River Township,Burlington,yes,"1,2,3,5,6",,,
+Beverly,Burlington,yes,"1,2,3,4,6",no retail class 5,https://thecityofbeverly.com,unknown
+Bordentown City,Burlington,yes,"1,2,5,6",,,
+Burlington City,Burlington,yes,"1,2,3,4,5,6",,,
+Cinnaminson Township,Burlington,yes,"1,2,5",,,
+Delran Township,Burlington,yes,"1,2,3,4,5,6",,,
+Eastampton Township,Burlington,yes,"1,2,3,4,5,6",,,
+Evesham Township,Burlington,yes,"1,2,3,4,5,6",,,
+Lumberton Township,Burlington,yes,"1,2,3,4,5,6",,,
+Moorestown Township,Burlington,yes,"1,2,3,4,5,6",,,
+Pemberton Township,Burlington,yes,"1,2,3,4,5,6",,,
+Riverside Township,Burlington,yes,"1,2,3,4,5",,,
+Shamong Township,Burlington,yes,"1,2,3,4,5",,,
+Willingboro Township,Burlington,yes,"1,2,3,5",,,
+Woodland Township,Burlington,yes,"1,2,3,4,5,6",,,
+Wrightstown,Burlington,yes,"1,2,5",,https://www.wrightstownborough.com,unknown
+Barrington,Camden,yes,5,retail only,https://barringtonboro.com,agendacenter
+Camden City,Camden,yes,"1,2,3,4,5",,,
+Chesilhurst,Camden,yes,"3,5,6",,https://chesilhurstboro.org,agendacenter
+Gloucester Township,Camden,yes,"1,2,3,4,5,6",,,
+Laurel Springs,Camden,yes,"5,6",,https://www.laurelsprings-nj.com,agendacenter
+Magnolia,Camden,yes,"1,2,3,4,5,6",,https://magnolia-nj.org,agendacenter
+Pennsauken Township,Camden,yes,"2,3,5",,,
+Voorhees Township,Camden,yes,"1,2,3,4,5,6",,,
+Waterford Township,Camden,yes,"1,2,3,4,6",no retail class 5,,
+Lower Township,Cape May,yes,"5,6",,,
+Middle Township,Cape May,yes,"1,2,5",,,
+West Cape May,Cape May,yes,"1,2,3,4,5",,,
+Commercial Township,Cumberland,yes,"1,2,3,4,5,6",land use hearing Jan 2026,,
+Downe,Cumberland,yes,"1,2,3,4,6",no retail class 5,https://downetwpnj.org,civicplus
+Fairfield Township,Cumberland,yes,"1,2,3,4,5,6",,,
+Greenwich Township,Cumberland,yes,5,retail only,,
+Stow Creek Township,Cumberland,yes,"1,2,3,4,5,6",,,
+Montclair,Essex,yes,"1,2,3,4,5,6",,,
+Greenwich Township,Gloucester,yes,"1,2,3,4,6",no retail class 5,,
+Monroe Township,Gloucester,yes,"1,2,3,4,5,6",,,
+National Park,Gloucester,yes,"1,2,3,4,5,6",,https://www.nationalparknj.com,unknown
+Woolwich Township,Gloucester,yes,"1,2,3,4,6",no retail class 5,,
+Bayonne,Hudson,yes,"1,2,3,4,5,6",,https://www.bayonnenj.org,unknown
+East Newark,Hudson,yes,"1,2,3,4,5,6",,https://www.boroughofeastnewark.com,unknown
+Frenchtown,Hudson,yes,5,retail only,https://frenchtownboro.com,unknown
+High Bridge,Hunterdon,yes,"1,2,3,4,5,6",,https://highbridge.org,agendacenter
+West Amwell Township,Hunterdon,yes,"1,2,3,5",,,
+East Windsor,Mercer,yes,"5,6",RFP issued; PDF on town site,https://www.east-windsor.nj.us,unknown
+Ewing Township,Mercer,yes,"1,2,3,4,5,6",MORATORIUM through Dec 31 2026,,
+Hamilton Township,Mercer,yes,"1,2,3,4,5,6",4 licenses max; previous RFQ Oct 2023,,
+Lawrence Township,Mercer,yes,"1,2,3,4,5,6",,,
+Carteret,Middlesex,yes,"1,2,3,4,5,6",,https://www.carteret.net,unknown
+Edison,Middlesex,yes,"1,2,3,4,5,6",,https://www.edisonnj.org,agendacenter
+Aberdeen Township,Monmouth,yes,"1,2,3,4,6",no retail class 5,,
+Freehold Borough,Monmouth,yes,"1,2,3,4,5",,,
+Long Branch,Monmouth,yes,"1,2,3,4,5,6",,https://www.longbranch.org,agendacenter
+Neptune Township,Monmouth,yes,"1,2,3,4,5,6",,,
+Ocean Township,Monmouth,yes,"1,2,5",,,
+Shrewsbury Township,Monmouth,yes,"1,2,3,4,5,6",,,
+Boonton Town,Morris,yes,"3,5",,,
+Jefferson Township,Morris,yes,"1,2,3,4,5,6",ALL 4 RETAIL LICENSES ISSUED; waitlist only,,
+Rockaway Township,Morris,yes,"1,2,3,4,5,6",,,
+Victory Gardens,Morris,yes,"1,2,3,4,5,6",,https://www.victorygardensnj.gov,unknown
+Ocean Township,Ocean,yes,"1,2,3,4,5,6",,,
+Pine Beach,Ocean,yes,"1,2,3,4,5,6",,https://www.pinebeachnj.gov,unknown
+Bloomingdale,Passaic,yes,5,retail only,https://www.bloomingdalenj.net,unknown
+Carneys Point Township,Salem,yes,"1,2,3,4,5,6",,,
+Penns Grove,Salem,yes,"1,2,3,4,5,6",,,
+Pennsville Township,Salem,yes,"1,2,3,4,6",no retail class 5,,
+Salem City,Salem,yes,"5,6",,,
+Bound Brook,Somerset,yes,"1,2,5",,,
+Andover Borough,Sussex,yes,"1,2,3,4,5,6",,,
+Frankford Township,Sussex,yes,"1,2,4,6",no retail class 5,,
+Stanhope,Sussex,yes,"5,6",,https://stanhopenj.gov,unknown
+Vernon Township,Sussex,yes,"1,2,3,4,5,6",,,
+Union Township,Union,yes,"1,2,3,4,5,6",,,
+Belvidere,Warren,yes,"1,2,3,4,5,6",,https://www.belviderenj.net,agendacenter
+Pohatcong,Warren,yes,5,retail only,http://www.pohatcongtwp.org,unknown
+Washington Borough,Warren,yes,"1,2,3,4,5,6",,,

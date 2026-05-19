@@ -1,0 +1,376 @@
+municipality,type,county,base_url,platform,status,detected_platform,detected_evidence,probe_status
+Aberdeen,Township,Monmouth,http://www.aberdeennj.org,agendacenter,found,agendacenter,already_known,skip
+Alexandria,Township,Hunterdon,https://www.alexandrianj.gov,unknown,found,unknown,,ok
+Allamuchy,Township,Warren,https://allamuchynj.org,civicplus,found,civicplus,already_known,skip
+Allendale,Borough,Bergen,https://www.allendalenj.gov,unknown,found,custom_pdf,pdf_links:176,ok
+Allenhurst,Borough,Monmouth,https://www.allenhurstnj.org,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Allentown,Borough,Monmouth,https://allentownboronj.com,civicplus,found,civicplus,already_known,skip
+Alloway,Township,Salem,https://allowaytownship.com,unknown,found,custom_pdf,pdf_links:224,ok
+Alpha,Borough,Warren,https://www.alphaboronj.org,unknown,not_found,unknown,,ok
+Alpine,Borough,Bergen,http://alpinenj07620.org,agendacenter,found,agendacenter,already_known,skip
+Asbury Park,City,Monmouth,https://www.cityofasburypark.com,agendacenter,found,agendacenter,already_known,skip
+Atlantic Highlands,Borough,Monmouth,,,no_url,skip,no_url,skip
+Audubon,Borough,Camden,,,no_url,skip,no_url,skip
+Audubon Park,Borough,Camden,,,no_url,skip,no_url,skip
+Avalon,Borough,Cape May,,,no_url,skip,no_url,skip
+Avon-by-the-Sea,Borough,Monmouth,,,no_url,skip,no_url,skip
+Barnegat,Township,Ocean,https://www.barnegat.net,unknown,found,custom_pdf,pdf_links:72,ok
+Barnegat Light,Borough,Ocean,https://barnegatlight.org,unknown,found,custom_pdf,pdf_links:13,ok
+Barrington,Borough,Camden,https://barringtonboro.com,unknown,found,agendacenter,html:AgendaCenter,ok
+Bay Head,Borough,Ocean,https://www.bayheadnj.org,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Bayonne,City,Hudson,https://www.bayonnenj.org,unknown,found,custom_pdf,pdf_links:151,ok
+Beach Haven,Borough,Ocean,https://beachhaven-nj.gov,unknown,not_found,unknown,,ok
+Beachwood,Borough,Ocean,https://www.beachwoodusa.com,agendacenter,found,agendacenter,already_known,skip
+Bedminster,Township,Somerset,https://www.bedminster.us,unknown,found,agendacenter,html:AgendaCenter,ok
+Belmar,Borough,Monmouth,https://www.belmar.com,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Belvidere,Town,Warren,https://www.belviderenj.net,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Bergenfield,Borough,Bergen,https://bergenfield.com,unknown,found,agendacenter,html:AgendaCenter,ok
+Berkeley,Township,Ocean,https://twp.berkeley.nj.us,unknown,not_found,unknown,,timeout
+Berkeley Heights,Township,Union,https://www.berkeleyheights.gov,agendacenter,found,agendacenter,already_known,skip
+Berlin,Borough,Camden,https://berlintwp.com,unknown,found,unknown,,ok
+Berlin,Township,Camden,https://berlintwp.com,unknown,found,unknown,,ok
+Bernards,Township,Somerset,https://www.bernards.org,unknown,found,unknown,,ok
+Bernardsville,Borough,Somerset,https://www.bernardsvilleboro.org,agendacenter,found,agendacenter,already_known,skip
+Bethlehem,Township,Hunterdon,https://bethlehemnj.org,unknown,found,custom_pdf,pdf_links:40,ok
+Beverly,City,Burlington,https://thecityofbeverly.com,unknown,found,custom_pdf,pdf_links:2,ok
+Blairstown,Township,Warren,https://www.blairstowntownship.org,unknown,not_found,unknown,,ok
+Bloomingdale,Borough,Passaic,https://www.bloomingdalenj.net,unknown,found,custom_pdf,pdf_links:22,ok
+Bloomsbury,Borough,Hunterdon,https://bloomsburyborough.com,unknown,found,agendacenter,html:AgendaCenter,ok
+Bogota,Borough,Bergen,https://www.bogotaonline.org,unknown,found,unknown,,ok
+Bradley Beach,Borough,Monmouth,https://www.bradleybeachnj.gov,unknown,found,agendacenter,html:AgendaCenter,ok
+Branchville,Borough,Sussex,https://www.branchville.us,unknown,found,custom_pdf,pdf_links:3,ok
+Brick,Township,Ocean,https://www.bricktownship.net,unknown,not_found,unknown,,ok
+Bridgewater,Township,Somerset,https://www.bridgewaternj.gov,unknown,found,unknown,,ok
+Brielle,Borough,Monmouth,https://www.briellenj.gov,agendacenter,found,agendacenter,already_known,skip
+Brigantine,City,Atlantic,https://brigantinebeach.org,unknown,found,custom_pdf,pdf_links:87,ok
+Buena Vista,Township,Atlantic,https://buenavistanj.com,unknown,found,custom_pdf,pdf_links:277,ok
+Burlington,Township,Burlington,http://twp.burlington.nj.us,unknown,not_found,unknown,,ok
+Burlington,City,Burlington,http://twp.burlington.nj.us,unknown,not_found,unknown,,ok
+Byram,Township,Sussex,https://www.byramtwp.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Caldwell,Borough,Essex,http://www.caldwell-nj.com,civicplus,found,civicplus,already_known,skip
+Califon,Borough,Hunterdon,https://www.califonborough-nj.org,agendacenter,found,agendacenter,already_known,skip
+Cape May Point,Borough,Cape May,,,no_url,skip,no_url,skip
+Carteret,Borough,Middlesex,https://www.carteret.net,unknown,found,laserfiche,html:laserfiche\.com,ok
+Cedar Grove,Township,Essex,https://cedargrovenj.org,agendacenter,found,agendacenter,already_known,skip
+Chatham,Township,Morris,https://chathamtownship.org,unknown,found,custom_pdf,pdf_links:2,ok
+Chatham,Borough,Morris,https://chathamtownship.org,unknown,found,custom_pdf,pdf_links:2,ok
+Cherry Hill,Township,Camden,https://www.chnj.gov,agendacenter,found,agendacenter,already_known,skip
+Chesilhurst,Borough,Camden,https://chesilhurstboro.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Chester,Borough,Morris,https://www.chestertownship.org,unknown,found,unknown,,ok
+Chester,Township,Morris,https://www.chestertownship.org,unknown,found,unknown,,ok
+Chesterfield,Township,Burlington,https://www.chesterfieldtwpnj.gov,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Clark,Township,Union,https://www.ourclark.com,agendacenter,found,agendacenter,already_known,skip
+Clayton,Borough,Gloucester,https://www.claytonnj.com,agendacenter,found,agendacenter,already_known,skip
+Cliffside Park,Borough,Bergen,https://www.cliffsideparknj.gov,unknown,not_found,unknown,,ok
+Clifton,City,Passaic,https://www.cliftonnj.org,agendacenter,found,agendacenter,already_known,skip
+Clinton,Township,Hunterdon,https://clintontwpnj.gov,unknown,found,unknown,,ok
+Clinton,Town,Hunterdon,https://clintontwpnj.gov,unknown,found,unknown,,ok
+Closter,Borough,Bergen,https://www.closterboro.com,unknown,not_found,unknown,,ok
+Colts Neck,Township,Monmouth,https://coltsneck.org,unknown,found,custom_pdf,pdf_links:25,ok
+Commercial,Township,Cumberland,https://commercialtwp.com,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Corbin City,City,Atlantic,https://sites.google.com/view/corbincitynj/home,unknown,found,agendacenter,html:AgendaCenter,ok
+Cranford,Township,Union,https://www.cranfordnj.org,agendacenter,found,agendacenter,already_known,skip
+Cresskill,Borough,Bergen,https://www.cresskillboro.com,unknown,found,unknown,,ok
+Deal,Borough,Monmouth,https://dealnj.gov,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Deerfield,Township,Cumberland,,,no_url,skip,no_url,skip
+Delanco,Township,Burlington,,,no_url,skip,no_url,skip
+Delaware,Township,Hunterdon,,,no_url,skip,no_url,skip
+Demarest,Borough,Bergen,,,no_url,skip,no_url,skip
+Dennis,Township,Cape May,https://dennistwp.org,unknown,found,unknown,,ok
+Denville,Township,Morris,https://www.denvillenj.gov,unknown,not_found,unknown,,ok
+Downe,Township,Cumberland,https://downetwpnj.org,civicplus,found,civicplus,already_known,skip
+Dumont,Borough,Bergen,https://www.dumontnj.gov,civicplus,found,civicplus,already_known,skip
+Dunellen,Borough,Middlesex,https://www.dunellen-nj.gov,agendacenter,found,agendacenter,already_known,skip
+Eagleswood,Township,Ocean,https://www.eagleswoodtwpnj.us,unknown,not_found,unknown,,ok
+East Amwell,Township,Hunterdon,https://www.eastamwelltownship.com,agendacenter,found,agendacenter,already_known,skip
+East Brunswick,Township,Middlesex,https://www.eastbrunswick.org,agendacenter,found,agendacenter,already_known,skip
+East Greenwich,Township,Gloucester,https://www.eastgreenwichnj.com,unknown,found,agendacenter,html:AgendaCenter,ok
+East Hanover,Township,Morris,https://www.easthanovertownship.com,unknown,found,unknown,,ok
+East Newark,Borough,Hudson,https://www.boroughofeastnewark.com,unknown,found,unknown,,ok
+East Rutherford,Borough,Bergen,https://www.eastrutherfordnj.net,agendacenter,found,agendacenter,already_known,skip
+East Windsor,Township,Mercer,https://www.east-windsor.nj.us,unknown,not_found,unknown,,ok
+Eastampton,Township,Burlington,https://www.eastampton.com,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Edgewater,Borough,Bergen,,,no_url,skip,no_url,skip
+Edison,Township,Middlesex,https://www.edisonnj.org,agendacenter,found,agendacenter,already_known,skip
+Egg Harbor,Township,Atlantic,https://www.ehtgov.org,agendacenter,found,agendacenter,already_known,skip
+Elk,Township,Gloucester,https://elktownshipnj.gov,unknown,found,unknown,,ok
+Elmer,Borough,Salem,http://www.elmerboroughnj.com,unknown,found,agendacenter,html:AgendaCenter,ok
+Elsinboro,Township,Salem,https://elsinborotownship.com,unknown,not_found,unknown,,timeout
+Emerson,Borough,Bergen,https://www.emersonnj.org,civicplus,found,civicplus,already_known,skip
+Englewood,City,Bergen,https://cityofenglewood.org,agendacenter,found,agendacenter,already_known,skip
+Englewood Cliffs,Borough,Bergen,https://englewoodcliffsnj.org,unknown,found,unknown,,ok
+Essex Fells,Borough,Essex,https://www.essexfellsboro.com,unknown,found,custom_pdf,pdf_links:5,ok
+Estell Manor,City,Atlantic,http://www.estellmanor.org,unknown,not_found,unknown,,ok
+Fair Haven,Borough,Monmouth,http://www.fairhavennj.org,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Fair Lawn,Borough,Bergen,https://www.fairlawn.org,civicplus,found,civicplus,already_known,skip
+Fairview,Borough,Bergen,,,no_url,skip,no_url,skip
+Fanwood,Borough,Union,https://fanwoodnj.org,unknown,found,unknown,,ok
+Far Hills,Borough,Somerset,https://www.farhillsnj.org,unknown,not_found,unknown,,ok
+Farmingdale,Borough,Monmouth,,,no_url,skip,no_url,skip
+Fieldsboro,Borough,Burlington,,,no_url,skip,no_url,skip
+Florence,Township,Burlington,https://www.florence-nj.gov,unknown,found,custom_pdf,pdf_links:83,ok
+Florham Park,Borough,Morris,https://www.florhamparknj.gov,unknown,not_found,unknown,,ok
+Folsom,Borough,Atlantic,http://www.folsomborough.com,unknown,found,custom_pdf,pdf_links:3,ok
+Franklin Lakes,Borough,Bergen,https://www.franklinlakes.org,civicplus,found,civicplus,already_known,skip
+Fredon,Township,Sussex,https://www.fredonnj.gov,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Frelinghuysen,Township,Warren,https://www.frelinghuysen-nj.us,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Frenchtown,Borough,Hunterdon,https://frenchtownboro.com,unknown,found,unknown,,ok
+Galloway,Township,Atlantic,https://www.gtnj.org,unknown,found,unknown,,ok
+Garwood,Borough,Union,https://garwood.org,civicplus,found,civicplus,already_known,skip
+Glen Gardner,Borough,Hunterdon,https://www.glengardner.org,unknown,found,unknown,,ok
+Glen Ridge,Borough,Essex,https://www.glenridgenj.org,unknown,found,custom_pdf,pdf_links:182,ok
+Glen Rock,Borough,Bergen,https://glenrocknj.net,unknown,found,unknown,,ok
+Gloucester,Township,Camden,https://glotwp.com,unknown,found,agendacenter,html:AgendaCenter,ok
+Green,Township,Sussex,http://www.greentwp.com,unknown,found,custom_pdf,pdf_links:12,ok
+Green Brook,Township,Somerset,https://www.greenbrooktwp.org,unknown,found,custom_pdf,pdf_links:8,ok
+Greenwich,Township,Cumberland,https://www.historicgreenwichnj.org,unknown,found,unknown,,ok
+Greenwich,Township,Gloucester,https://www.historicgreenwichnj.org,unknown,found,unknown,,ok
+Greenwich,Township,Warren,https://www.historicgreenwichnj.org,unknown,found,unknown,,ok
+Guttenberg,Town,Hudson,https://www.guttenbergnj.org,unknown,found,custom_pdf,pdf_links:2,ok
+Haddon,Township,Camden,https://www.haddontwp.com,unknown,found,custom_pdf,pdf_links:224,ok
+Haddon Heights,Borough,Camden,https://haddonhts.com,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Haddonfield,Borough,Camden,https://www.haddonfieldnj.org,unknown,not_found,unknown,,ok
+Hamburg,Borough,Sussex,,,no_url,skip,no_url,skip
+Hampton,Borough,Hunterdon,https://www.hamptontownshipnj.info,agendacenter,found,agendacenter,already_known,skip
+Hampton,Township,Sussex,https://www.hamptontownshipnj.info,agendacenter,found,agendacenter,already_known,skip
+Hanover,Township,Morris,https://www.hanovertownship.com,agendacenter,found,agendacenter,already_known,skip
+Harding,Township,Morris,https://www.hardingnj.org,unknown,found,unknown,,ok
+Hardwick,Township,Warren,https://www.hardwicktwp.com,unknown,found,unknown,,ok
+Hardyston,Township,Sussex,https://hardyston.com,unknown,found,custom_pdf,pdf_links:4,ok
+Harmony,Township,Warren,http://www.harmonytwp-nj.gov,unknown,found,unknown,,ok
+Harrington Park,Borough,Bergen,https://www.harringtonparknj.gov,unknown,found,unknown,,ok
+Harvey Cedars,Borough,Ocean,https://www.harveycedars.org,unknown,found,custom_pdf,pdf_links:3,ok
+Hasbrouck Heights,Borough,Bergen,https://hasbrouck-heightsnj.org,unknown,found,custom_pdf,pdf_links:154,ok
+Haworth,Borough,Bergen,https://www.haworthnj.org,civicplus,found,civicplus,already_known,skip
+Hawthorne,Borough,Passaic,https://www.hawthornenj.org,agendacenter,found,agendacenter,already_known,skip
+Hazlet,Township,Monmouth,https://www.hazlettwp.org,agendacenter,found,agendacenter,already_known,skip
+Helmetta,Borough,Middlesex,http://www.helmettaboro.com,unknown,found,custom_pdf,pdf_links:4,ok
+Hi-Nella,Borough,Camden,https://www.hinellaboro.org,unknown,found,custom_pdf,pdf_links:2,ok
+High Bridge,Borough,Hunterdon,https://highbridge.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Hightstown,Borough,Mercer,https://www.hightstownborough.com,unknown,found,custom_pdf,pdf_links:5,ok
+Hillsborough,Township,Somerset,https://www.hillsborough-nj.org,unknown,found,unknown,,ok
+Hillsdale,Borough,Bergen,https://www.hillsdalenj.org,civicplus,found,civicplus,already_known,skip
+Hillside,Township,Union,https://hillsidenj.us,legistar,found,legistar,already_known,skip
+Ho-Ho-Kus,Borough,Bergen,https://www.hhkborough.com,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Holland,Township,Hunterdon,https://www.hollandtownshipnj.gov,unknown,found,unknown,,ok
+Holmdel,Township,Monmouth,https://www.holmdeltownship.com,agendacenter,found,agendacenter,already_known,skip
+Hope,Township,Warren,https://www.hopetwp-nj.us,unknown,found,unknown,,ok
+Howell,Township,Monmouth,https://www.twp.howell.nj.us,agendacenter,found,agendacenter,already_known,skip
+Independence,Township,Warren,https://independencenj.com,unknown,found,custom_pdf,pdf_links:139,ok
+Interlaken,Borough,Monmouth,https://www.interlakenboro.com,unknown,found,custom_pdf,pdf_links:114,ok
+Island Heights,Borough,Ocean,https://islandheightsborough.gov,unknown,found,unknown,,ok
+Jackson,Township,Ocean,https://www.jacksontwpnj.net,agendacenter,found,agendacenter,already_known,skip
+Jamesburg,Borough,Middlesex,https://www.jamesburgborough.org,unknown,not_found,unknown,,ok
+Kearny,Town,Hudson,https://www.kearnynj.org,unknown,found,custom_pdf,pdf_links:251 (wordpress /council-meeting-agendas/),ok
+Kenilworth,Borough,Union,https://www.kenilworthborough.com,agendacenter,found,agendacenter,already_known,skip
+Kingwood,Township,Hunterdon,https://www.kingwoodtownship.com,unknown,found,unknown,,ok
+Kinnelon,Borough,Morris,https://www.kinnelonboro.org,unknown,found,custom_pdf,pdf_links:28,ok
+Knowlton,Township,Warren,https://knowlton-nj.com,unknown,found,custom_pdf,pdf_links:2,ok
+Lacey,Township,Ocean,http://www.laceytownship.org,agendacenter,found,agendacenter,already_known,skip
+Lake Como,Borough,Monmouth,https://lakecomonj.org,unknown,found,unknown,,ok
+Laurel Springs,Borough,Camden,https://www.laurelsprings-nj.com,agendacenter,found,agendacenter,already_known,skip
+Lavallette,Borough,Ocean,https://www.lavallette.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Lebanon,Township,Hunterdon,http://www.lebanontownship.net,unknown,found,iqm2,html:IQM2,ok
+Lebanon,Borough,Hunterdon,http://www.lebanontownship.net,unknown,found,iqm2,html:IQM2,ok
+Leonia,Borough,Bergen,https://www.leonianj.gov,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Liberty,Township,Warren,https://www.libertytownship.org,unknown,found,custom_pdf,pdf_links:15,ok
+Lindenwold,Borough,Camden,https://www.lindenwoldnj.gov,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Linwood,City,Atlantic,http://www.linwoodcity.org,unknown,found,custom_pdf,pdf_links:3,ok
+Little Egg Harbor,Township,Ocean,https://www.leht.com,unknown,found,custom_pdf,pdf_links:359,ok
+Little Silver,Borough,Monmouth,https://www.littlesilvernj.gov,agendacenter,found,agendacenter,already_known,skip
+Livingston,Township,Essex,https://www.livingstonnj.org,agendacenter,found,agendacenter,already_known,skip
+Loch Arbour,Village,Monmouth,,,no_url,skip,no_url,skip
+Logan,Township,Gloucester,https://www.logan-twp.org,agendacenter,found,agendacenter,already_known,skip
+Long Beach,Township,Ocean,https://www.longbeachtownship.com,unknown,found,custom_pdf,pdf_links:32,ok
+Long Branch,City,Monmouth,https://www.longbranch.org,agendacenter,found,agendacenter,already_known,skip
+Long Hill,Township,Morris,https://www.longhillnj.gov,unknown,found,custom_pdf,pdf_links:2,ok
+Longport,Borough,Atlantic,https://www.longportnj.gov,unknown,found,custom_pdf,pdf_links:2,ok
+Lopatcong,Township,Warren,https://www.lopatcongtwp.com,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Lower,Township,Cape May,https://townshipoflower.org,unknown,found,custom_pdf,pdf_links:15,ok
+Lower Alloways Creek,Township,Salem,https://www.lowerallowayscreek-nj.gov,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Lyndhurst,Township,Bergen,https://www.lyndhurstnj.org,unknown,found,unknown,,ok
+Madison,Borough,Morris,https://www.rosenet.org,agendacenter,found,agendacenter,already_known,skip
+Magnolia,Borough,Camden,https://magnolia-nj.org,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Mahwah,Township,Bergen,https://www.mahwahtwp.org,agendacenter,found,agendacenter,already_known,skip
+Manalapan,Township,Monmouth,https://mtnj.org,unknown,found,unknown,,ok
+Manasquan,Borough,Monmouth,https://www.manasquan-nj.gov,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Manchester,Township,Ocean,https://manchestertwp.com,unknown,found,civicplus,html:CivicPlus,ok
+Mannington,Township,Salem,https://manningtontwp.com,unknown,found,unknown,,ok
+Mansfield,Township,Burlington,https://www.mansfieldtwp.com,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Mansfield,Township,Warren,https://www.mansfieldtwp.com,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Mantoloking,Borough,Ocean,https://www.mantoloking.org,agendacenter,found,agendacenter,already_known,skip
+Mantua,Township,Gloucester,https://mantuatownship.com,unknown,found,unknown,,ok
+Manville,Borough,Somerset,https://www.manvillenj.org,agendacenter,found,agendacenter,already_known,skip
+Maple Shade,Township,Burlington,https://mapleshade.com,unknown,not_found,unknown,,ok
+Margate City,City,Atlantic,https://www.margate-nj.com,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Marlboro,Township,Monmouth,https://www.marlboro-nj.gov,unknown,found,custom_pdf,pdf_links:2,ok
+Maurice River,Township,Cumberland,https://www.mauricerivertwp.org,civicplus,found,civicplus,already_known,skip
+Medford,Township,Burlington,https://medfordtownship.com,unknown,not_found,unknown,,ok
+Medford Lakes,Borough,Burlington,https://www.medfordlakes.com,agendacenter,found,agendacenter,already_known,skip
+Mendham,Township,Morris,https://www.mendhamtownship.org,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Mendham,Borough,Morris,https://www.mendhamtownship.org,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Middletown,Township,Monmouth,https://www.middletownnj.org,agendacenter,found,agendacenter,already_known,skip
+Midland Park,Borough,Bergen,https://www.midlandparknj.org,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Milford,Borough,Hunterdon,https://www.milfordnj.gov,unknown,found,unknown,,ok
+Millburn,Township,Essex,https://twp.millburn.nj.us,agendacenter,found,agendacenter,already_known,skip
+Millstone,Township,Monmouth,https://www.millstonenj.gov,unknown,found,custom_pdf,pdf_links:6,ok
+Millstone,Borough,Somerset,https://www.millstonenj.gov,unknown,found,custom_pdf,pdf_links:6,ok
+Milltown,Borough,Middlesex,https://www.milltownnj.org,civicplus,found,civicplus,already_known,skip
+Mine Hill,Township,Morris,https://minehill.com,unknown,found,civicplus,html:CivicPlus,ok
+Monmouth Beach,Borough,Monmouth,https://www.monmouthbeach.org,unknown,not_found,unknown,,ok
+Montague,Township,Sussex,https://www.montaguenj.org,unknown,found,custom_pdf,pdf_links:4,ok
+Montgomery,Township,Somerset,https://www.montgomerynj.gov,agendacenter,found,agendacenter,already_known,skip
+Montvale,Borough,Bergen,https://www.montvale.org,unknown,found,unknown,,ok
+Montville,Township,Morris,https://www.montvillenj.org,agendacenter,found,agendacenter,already_known,skip
+Moonachie,Borough,Bergen,https://www.moonachie.us,agendacenter,found,agendacenter,already_known,skip
+Morris,Township,Morris,https://www.morristwp.com,agendacenter,found,agendacenter,already_known,skip
+Morris Plains,Borough,Morris,https://morrisplainsboro.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Mount Arlington,Borough,Morris,https://mountarlingtonnj.org,unknown,found,custom_pdf,pdf_links:4,ok
+Mountain Lakes,Borough,Morris,https://mountainlakes.gov,unknown,found,custom_pdf,pdf_links:20,ok
+Mountainside,Borough,Union,https://www.mountainside-nj.com,unknown,found,custom_pdf,pdf_links:608,ok
+Mullica,Township,Atlantic,https://www.mullicatownship.org,unknown,found,custom_pdf,pdf_links:18,ok
+National Park,Borough,Gloucester,https://www.nationalparknj.com,unknown,not_found,unknown,,ok
+Neptune,Township,Monmouth,https://neptunetownship.org,unknown,found,agendacenter,html:AgendaCenter,ok
+New Hanover,Township,Burlington,https://www.newhanovertwp.com,unknown,found,unknown,,ok
+New Milford,Borough,Bergen,https://www.newmilfordnj.gov,civicplus,found,civicplus,already_known,skip
+New Providence,Borough,Union,https://www.newprov.org,agendacenter,found,agendacenter,already_known,skip
+North Arlington,Borough,Bergen,https://www.northarlington.org,unknown,found,unknown,,ok
+North Caldwell,Borough,Essex,https://www.northcaldwell.org/our-borough,unknown,not_found,agendacenter,html:AgendaCenter,ok
+North Haledon,Borough,Passaic,https://www.northhaledon.com,unknown,not_found,unknown,,ok
+North Hanover,Township,Burlington,https://www.northhanovertwp.com,unknown,not_found,unknown,,ok
+North Wildwood,City,Cape May,https://northwildwood.com,unknown,not_found,unknown,,ok
+Northfield,City,Atlantic,https://www.cityofnorthfield.org,unknown,found,custom_pdf,pdf_links:6,ok
+Northvale,Borough,Bergen,https://www.boroughofnorthvale.com,unknown,found,unknown,,ok
+Norwood,Borough,Bergen,https://www.norwoodboro.org,unknown,not_found,unknown,,ok
+Nutley,Township,Essex,https://www.nutleynj.org,unknown,not_found,unknown,,ok
+Ocean,Township,Monmouth,https://www.oceantwp.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Ocean,Township,Ocean,https://www.oceantwp.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Ocean Gate,Borough,Ocean,https://oceangatenjgov.com,unknown,found,unknown,,ok
+Oceanport,Borough,Monmouth,https://www.oceanportboro.com,unknown,found,civicclerk,html:civicclerk\.com,ok
+Ogdensburg,Borough,Sussex,https://ogdensburgnj.org,unknown,found,custom_pdf,pdf_links:172,ok
+Old Bridge,Township,Middlesex,https://www.oldbridge.com,unknown,not_found,unknown,,ok
+Old Tappan,Borough,Bergen,https://oldtappan.net,unknown,found,unknown,,ok
+Oldmans,Township,Salem,https://oldmanstownship.com,unknown,found,unknown,,ok
+Oradell,Borough,Bergen,http://www.oradell.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Palisades Park,Borough,Bergen,https://mypalisadespark.com,agendacenter,found,agendacenter,already_known,skip
+Palmyra,Borough,Burlington,https://boroughofpalmyra.com,unknown,found,agendacenter,html:AgendaCenter,ok
+Park Ridge,Borough,Bergen,https://www.parkridgeboro.com,unknown,found,unknown,,ok
+Parsippany-Troy Hills,Township,Morris,https://www.parsippany.net,unknown,found,unknown,,ok
+Peapack-Gladstone,Borough,Somerset,http://www.peapackgladstone.org,unknown,found,custom_pdf,pdf_links:8,ok
+Pennsville,Township,Salem,https://www.pennsville.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Perth Amboy,City,Middlesex,https://www.perthamboynj.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Pilesgrove,Township,Salem,https://www.pilesgrovenj.org,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Pine Beach,Borough,Ocean,https://www.pinebeachnj.gov,unknown,found,unknown,,ok
+Pine Hill,Borough,Camden,https://www.pinehillboronj.com,unknown,not_found,unknown,,ok
+Pine Valley,Borough,Camden,,,no_url,skip,no_url,skip
+Piscataway,Township,Middlesex,http://www.piscatawaynj.org,unknown,not_found,unknown,,ok
+Pitman,Borough,Gloucester,https://www.pitman.org,unknown,found,custom_pdf,pdf_links:15,ok
+Pittsgrove,Township,Salem,https://www.pittsgrovetownship.com,unknown,found,agendacenter,html:AgendaCenter,ok
+Plainsboro,Township,Middlesex,https://www.plainsboronj.com,agendacenter,found,agendacenter,already_known,skip
+Plumsted,Township,Ocean,http://www.plumsted.org,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Pohatcong,Township,Warren,http://www.pohatcongtwp.org,unknown,found,unknown,,ok
+Point Pleasant,Borough,Ocean,,,no_url,skip,no_url,skip
+Point Pleasant Beach,Borough,Ocean,https://www.pointpleasantbeach.org,agendacenter,found,agendacenter,already_known,skip
+Pompton Lakes,Borough,Passaic,https://www.pomptonlakes-nj.gov,agendacenter,found,agendacenter,already_known,skip
+Port Republic,City,Atlantic,https://www.portrepublicnj.org,unknown,found,custom_pdf,pdf_links:9,ok
+Prospect Park,Borough,Passaic,https://www.prospectpark.net,unknown,not_found,unknown,,ok
+Quinton,Township,Salem,,,no_url,skip,no_url,skip
+Ramsey,Borough,Bergen,https://www.ramseynj.com,agendacenter,found,agendacenter,already_known,skip
+Randolph,Township,Morris,https://www.randolphnj.org,agendacenter,found,agendacenter,already_known,skip
+Readington,Township,Hunterdon,https://www.readington.gov,unknown,found,unknown,,ok
+Ridgefield Park,Village,Bergen,https://www.ridgefieldpark.org,agendacenter,found,agendacenter,already_known,skip
+Ridgewood,Village,Bergen,https://www.ridgewoodnj.net,agendacenter,found,agendacenter,already_known,skip
+Ringwood,Borough,Passaic,https://www.ringwoodnj.net,unknown,not_found,unknown,,ok
+River Vale,Township,Bergen,https://www.rivervalenj.org,unknown,not_found,unknown,,ok
+Riverdale,Borough,Morris,http://www.riverdalenj.gov,unknown,found,unknown,,ok
+Riverton,Borough,Burlington,https://riverton-nj.com,unknown,not_found,unknown,,ok
+Robbinsville,Township,Mercer,https://www.robbinsville-twp.org,unknown,found,custom_pdf,pdf_links:448,ok
+Rockleigh,Borough,Bergen,https://rockleighnj.org,unknown,found,unknown,,ok
+Rocky Hill,Borough,Somerset,https://www.rockyhill-nj.gov,agendacenter,found,agendacenter,already_known,skip
+Roosevelt,Borough,Monmouth,https://www.rooseveltnj.us,unknown,found,unknown,,ok
+Roseland,Borough,Essex,http://www.roselandnj.org,agendacenter,found,agendacenter,already_known,skip
+Roxbury,Township,Morris,https://www.roxburynj.us,agendacenter,found,agendacenter,already_known,skip
+Rumson,Borough,Monmouth,https://www.rumsonnj.gov,unknown,found,unknown,,ok
+Rutherford,Borough,Bergen,https://www.rutherfordboronj.com,unknown,found,unknown,,ok
+Saddle River,Borough,Bergen,https://www.saddleriver.org,civicplus,found,civicplus,already_known,skip
+Sandyston,Township,Sussex,https://www.sandystontownship.com,unknown,found,unknown,,ok
+Sayreville,Borough,Middlesex,http://www.sayreville.com,unknown,found,custom_pdf,pdf_links:51 (/cn/Meetings/),ok
+Sea Bright,Borough,Monmouth,https://www.seabrightnj.org/sbnj,agendacenter,found,agendacenter,already_known,skip
+Sea Girt,Borough,Monmouth,https://www.seagirt-nj.gov,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Sea Isle City,City,Cape May,https://www.seaislecitynj.us,unknown,not_found,unknown,,ok
+Seaside Heights,Borough,Ocean,https://www.seaside-heightsnj.org,agendacenter,found,agendacenter,already_known,skip
+Seaside Park,Borough,Ocean,https://www.seasideparknj.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Shamong,Township,Burlington,https://www.shamong.net,unknown,not_found,unknown,,ok
+Shiloh,Borough,Cumberland,https://shilohborough.com,unknown,not_found,unknown,,ok
+Ship Bottom,Borough,Ocean,https://www.shipbottom.org,unknown,not_found,unknown,,ok
+Shrewsbury,Borough,Monmouth,http://www.townshipofshrewsbury.com/index.html,unknown,found,custom_pdf,pdf_links:4,ok
+Shrewsbury,Township,Monmouth,http://www.townshipofshrewsbury.com/index.html,unknown,found,custom_pdf,pdf_links:4,ok
+Somers Point,City,Atlantic,http://www.somerspointgov.org,unknown,found,custom_pdf,pdf_links:23,ok
+South Amboy,City,Middlesex,http://www.southamboynj.gov,unknown,found,unknown,,ok
+South Hackensack,Township,Bergen,https://www.southhackensacknj.org,unknown,found,custom_pdf,pdf_links:2,ok
+South Harrison,Township,Gloucester,https://www.southharrison-nj.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Southampton,Township,Burlington,https://www.southamptonnj.org,unknown,not_found,unknown,,ok
+Sparta,Township,Sussex,http://www.spartanj.org,agendacenter,found,agendacenter,already_known,skip
+Spotswood,Borough,Middlesex,https://www.spotswoodboro.com,unknown,found,unknown,,ok
+Spring Lake,Borough,Monmouth,,,no_url,skip,no_url,skip
+Spring Lake Heights,Borough,Monmouth,https://springlakehts.com,unknown,found,unknown,,ok
+Stafford,Township,Ocean,https://www.staffordnj.gov,agendacenter,found,agendacenter,already_known,skip
+Stanhope,Borough,Sussex,https://stanhopenj.gov,unknown,found,unknown,,ok
+Stillwater,Township,Sussex,https://stillwatertownshipnj.com,unknown,found,unknown,,ok
+Stockton,Borough,Hunterdon,http://www.stocktonboronj.us,unknown,found,custom_pdf,pdf_links:13,ok
+Stone Harbor,Borough,Cape May,https://stoneharbornj.org,unknown,not_found,unknown,,ok
+Stow Creek,Township,Cumberland,https://stowcreektwp.org,unknown,found,unknown,,ok
+Stratford,Borough,Camden,https://stratfordnj.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Summit,City,Union,https://www.cityofsummit.org,agendacenter,found,agendacenter,already_known,skip
+Surf City,Borough,Ocean,,,no_url,skip,no_url,skip
+Tabernacle,Township,Burlington,https://www.tabernacle-nj.gov,unknown,not_found,unknown,,ok
+Tavistock,Borough,Camden,https://tavistocknj.org,unknown,found,unknown,,ok
+Teaneck,Township,Bergen,https://www.teanecknj.gov,unknown,found,iqm2,html:iqm2\.com,ok
+Tenafly,Borough,Bergen,https://www.tenaflynj.gov,unknown,not_found,unknown,,timeout
+Teterboro,Borough,Bergen,https://www.teterboronj.org,unknown,found,unknown,,ok
+Tewksbury,Township,Hunterdon,https://www.tewksburytwp.net,unknown,not_found,unknown,,ok
+Toms River,Township,Ocean,https://tomsrivertownship.com,agendacenter,found,agendacenter,already_known,skip
+Totowa,Borough,Passaic,http://www.totowanj.org,unknown,found,unknown,,ok
+Union,Township,Hunterdon,https://uniontwp-hcnj.gov,civicplus,found,civicplus,already_known,skip
+Union,Township,Union,https://uniontwp-hcnj.gov,civicplus,found,civicplus,already_known,skip
+Union Beach,Borough,Monmouth,https://www.unionbeachnj.gov/ubnj,agendacenter,found,agendacenter,already_known,skip
+Upper,Township,Cape May,https://uppertownship.com,unknown,found,unknown,,ok
+Upper Deerfield,Township,Cumberland,https://upperdeerfield.com,unknown,not_found,unknown,,ok
+Upper Freehold,Township,Monmouth,https://uftnj.com,unknown,found,agendacenter,html:AgendaCenter,ok
+Upper Pittsgrove,Township,Salem,https://upperpittsgrovenj.org,unknown,found,custom_pdf,pdf_links:105,ok
+Upper Saddle River,Borough,Bergen,https://www.usrtoday.org,agendacenter,found,agendacenter,already_known,skip
+Ventnor City,City,Atlantic,https://www.ventnorcity.org,unknown,not_found,unknown,,ok
+Verona,Township,Essex,https://www.veronanj.org,unknown,not_found,unknown,,ok
+Victory Gardens,Borough,Morris,https://www.victorygardensnj.gov,unknown,found,unknown,,ok
+Waldwick,Borough,Bergen,https://www.waldwicknj.org,unknown,not_found,unknown,,ok
+Wall,Township,Monmouth,https://www.wallnj.gov,agendacenter,found,agendacenter,already_known,skip
+Wallington,Borough,Bergen,https://www.wallingtonnj.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Walpack,Township,Sussex,https://walpackhistory.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Wanaque,Borough,Passaic,https://www.wanaqueborough.com,civicplus,found,civicplus,already_known,skip
+Warren,Township,Somerset,https://warrennj.org,agendacenter,found,agendacenter,already_known,skip
+Watchung,Borough,Somerset,https://watchungnj.gov,unknown,not_found,unknown,,ok
+Wayne,Township,Passaic,https://www.waynetownship.com,unknown,found,agendacenter,html:AgendaCenter,ok
+Weehawken,Township,Hudson,https://www.weehawken-nj.us,unknown,not_found,agendacenter,html:AgendaCenter,ok
+West Caldwell,Township,Essex,https://www.westcaldwell.com,unknown,found,unknown,,ok
+West Long Branch,Borough,Monmouth,https://www.westlongbranch.org,agendacenter,found,agendacenter,already_known,skip
+West Wildwood,Borough,Cape May,https://westwildwood.org,unknown,not_found,unknown,,ok
+West Windsor,Township,Mercer,https://www.westwindsornj.org,unknown,found,custom_pdf,pdf_links:10,ok
+Westampton,Township,Burlington,https://www.westamptonnj.gov,unknown,not_found,agendacenter,html:AgendaCenter,ok
+Westfield,Town,Union,https://www.westfieldnj.gov,agendacenter,found,agendacenter,already_known,skip
+Westville,Borough,Gloucester,https://westville-nj.com,unknown,found,custom_pdf,pdf_links:452,ok
+Westwood,Borough,Bergen,https://www.westwoodnj.gov,agendacenter,found,agendacenter,already_known,skip
+Weymouth,Township,Atlantic,https://www.weymouthnj.org,unknown,not_found,unknown,,ok
+White,Township,Warren,https://www.white-township.com,unknown,found,unknown,,ok
+Wildwood,City,Cape May,https://wildwoodnj.org,agendacenter,found,agendacenter,already_known,skip
+Wildwood Crest,Borough,Cape May,https://wildwoodcrest.org,unknown,found,agendacenter,html:AgendaCenter,ok
+Winfield,Township,Union,,,no_url,skip,no_url,skip
+Wood-Ridge,Borough,Bergen,https://www.njwoodridge.org,unknown,found,unknown,,ok
+Woodbine,Borough,Cape May,https://www.boroughofwoodbine.net,unknown,found,unknown,,ok
+Woodcliff Lake,Borough,Bergen,https://wclnj.com,unknown,found,unknown,,ok
+Woodland,Township,Burlington,,,no_url,skip,no_url,skip
+Woodland Park,Borough,Passaic,https://wpnj.us,unknown,not_found,unknown,,ok
+Woodlynne,Borough,Camden,https://www.woodlynnenj.org,unknown,found,unknown,,ok
+Woodstown,Borough,Salem,https://historicwoodstown.org,civicplus,found,civicplus,already_known,skip
+Woolwich,Township,Gloucester,https://woolwichtwp.org,unknown,found,custom_pdf,pdf_links:9,ok
+Wrightstown,Borough,Burlington,https://www.wrightstownborough.com,unknown,found,unknown,,ok
+Wyckoff,Township,Bergen,https://www.wyckoffnj.gov,unknown,found,agendacenter,html:AgendaCenter,ok

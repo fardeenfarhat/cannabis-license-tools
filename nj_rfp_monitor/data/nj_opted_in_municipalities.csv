@@ -1,0 +1,210 @@
+municipality,county,allows_retail_class5,classes_allowed,notes
+Absecon,Atlantic,yes,"1,2,3,4,5,6",
+Atlantic City,Atlantic,yes,"1,2,3,4,5,6",
+Buena,Atlantic,yes,"1,2,3,4,5,6",
+Egg Harbor City,Atlantic,yes,"1,2,3,4,5,6",
+Egg Harbor Township,Atlantic,yes,"1,2,3,4,5,6",
+Folsom,Atlantic,yes,"1,2,3,4,5,6",
+Galloway Township,Atlantic,yes,"1,2,3,5,6",
+Hamilton Township,Atlantic,yes,"1,2,3,4,5,6",
+Pleasantville,Atlantic,yes,"1,2,3,4,6",no retail class 5
+Carlstadt,Bergen,yes,"1,2,3,4,5,6",
+East Rutherford,Bergen,yes,"1,2,3,4,5",
+Leonia,Bergen,yes,"1,2,3,4,5",
+Bergenfield,Bergen,yes,"1,2,3,4",no retail class 5
+Cliffside Park,Bergen,yes,"5",retail only
+Elmwood Park,Bergen,yes,"1,2,3,4,5,6",
+Fort Lee,Bergen,yes,"1,2,3,4,5,6",
+Garfield,Bergen,yes,"1,2,3,4,5",
+Hackensack,Bergen,yes,"5",retail only
+Lodi,Bergen,yes,"5",retail only
+Maywood,Bergen,yes,"1,2,3,4,5,6",
+Moonachie,Bergen,no,"1,2,3,4",no retail class 5
+North Arlington,Bergen,yes,"1,2,3,4,5,6",
+Northvale,Bergen,no,"1,2,3,4",no retail class 5
+Oakland,Bergen,yes,"1,2,3,4,5,6",
+Oradell,Bergen,yes,"1,2,3,4,5,6",
+Ridgefield,Bergen,no,"1,2,3",no retail class 5
+River Edge,Bergen,yes,"5",retail only
+Rochelle Park,Bergen,yes,"1,2,3,4,5,6",
+Rutherford,Bergen,no,"1,2,3,4",no retail class 5
+Saddle Brook,Bergen,yes,"1,2,5",
+South Hackensack,Bergen,yes,"1,2,3,4,5,6",
+Teaneck,Bergen,yes,"1,2,3,4,5,6",
+Wallington,Bergen,yes,"1,2,3,4,5,6",
+Wood-Ridge,Bergen,no,"1,2,3,4",no retail class 5
+Bass River Township,Burlington,yes,"1,2,3,5,6",
+Beverly,Burlington,yes,"1,2,3,4,6",no retail class 5
+Bordentown City,Burlington,yes,"1,2,5,6",
+Burlington City,Burlington,yes,"1,2,3,4,5,6",
+Chesterfield Township,Burlington,no,"1,2,3",no retail class 5
+Cinnaminson Township,Burlington,yes,"1,2,5",
+Delran Township,Burlington,yes,"1,2,3,4,5,6",
+Eastampton Township,Burlington,yes,"1,2,3,4,5,6",
+Edgewater Park,Burlington,yes,"3,4,5,6",
+Evesham Township,Burlington,yes,"1,2,3,4,5,6",
+Hainesport Township,Burlington,no,"3,4",no retail class 5
+Lumberton Township,Burlington,yes,"1,2,3,4,5,6",
+Moorestown Township,Burlington,yes,"1,2,3,4,5,6",
+Mount Holly,Burlington,yes,"1,2,3,4,5,6",
+Mount Laurel,Burlington,yes,"1,2,3,4,5,6",
+Pemberton Township,Burlington,yes,"1,2,3,4,5,6",
+Riverside Township,Burlington,yes,"1,2,3,4,5",
+Shamong Township,Burlington,yes,"1,2,3,4,5",
+Willingboro Township,Burlington,yes,"1,2,3,5",
+Woodland Township,Burlington,yes,"1,2,3,4,5,6",
+Wrightstown,Burlington,yes,"1,2,5",
+Barrington,Camden,yes,"5",retail only
+Bellmawr,Camden,yes,"1,2,3,4,5,6",
+Brooklawn,Camden,yes,"5",retail only
+Camden City,Camden,yes,"1,2,3,4,5",
+Chesilhurst,Camden,yes,"3,5,6",
+Clementon,Camden,yes,"5,6",
+Collingswood,Camden,yes,"1,2,3,4,5,6",
+Gibbsboro,Camden,yes,"1,2,3,4,5,6",
+Gloucester City,Camden,yes,"1,2,3,4,5,6",
+Gloucester Township,Camden,yes,"1,2,3,4,5,6",
+Laurel Springs,Camden,yes,"5,6",
+Lawnside,Camden,no,"1,2,3,4",no retail class 5
+Magnolia,Camden,yes,"1,2,3,4,5,6",
+Merchantville,Camden,yes,"5",retail only
+Oaklyn,Camden,yes,"5,6",
+Pennsauken Township,Camden,yes,"2,3,5",
+Runnemede,Camden,yes,"1,2,3,4,5,6",
+Somerdale,Camden,yes,"1,2,3,4,5,6",
+Tavistock,Camden,no,"none",opted in but no classes
+Voorhees Township,Camden,yes,"1,2,3,4,5,6",
+Waterford Township,Camden,yes,"1,2,3,4,6",no retail class 5
+Winslow Township,Camden,no,"1,2,3,4",no retail class 5
+Lower Township,Cape May,yes,"5,6",
+Middle Township,Cape May,yes,"1,2,5",
+West Cape May,Cape May,yes,"1,2,3,4,5",
+Woodbine,Cape May,no,"1,2,3,4",no retail class 5
+Bridgeton,Cumberland,yes,"1,2,3,4,5,6",
+Commercial Township,Cumberland,yes,"1,2,3,4,5,6",land use hearing Jan 2026
+Downe,Cumberland,yes,"1,2,3,4,6",no retail class 5
+Fairfield Township,Cumberland,yes,"1,2,3,4,5,6",
+Greenwich Township,Cumberland,yes,"5",retail only
+Millville,Cumberland,no,"1,2,3,4",no retail class 5
+Stow Creek Township,Cumberland,yes,"1,2,3,4,5,6",
+Vineland,Cumberland,yes,"1,2,3,4,5,6",
+Belleville,Essex,yes,"1,2,3,4,5,6",
+Bloomfield,Essex,yes,"1,2,3,4,5,6",
+East Orange,Essex,yes,"1,2,3,4,5,6",
+Fairfield,Essex,no,"2,3,4",no retail class 5
+Irvington,Essex,yes,"1,2,3,4,5,6",
+Maplewood,Essex,yes,"1,2,3,4,5,6",
+Montclair,Essex,yes,"1,2,3,4,5,6",
+Newark,Essex,yes,"1,2,3,4,5,6",
+South Orange,Essex,yes,"3,4,5,6",
+West Orange,Essex,yes,"1,2,3,4,5,6",
+Elk Township,Gloucester,no,"1,2,3,4",no retail class 5
+Franklin Township,Gloucester,no,"1,2,3,4",no retail class 5
+Glassboro,Gloucester,yes,"1,2,3,4,5,6",
+Greenwich Township,Gloucester,yes,"1,2,3,4,6",no retail class 5
+Logan Township,Gloucester,no,"2",no retail class 5
+Monroe Township,Gloucester,yes,"1,2,3,4,5,6",
+National Park,Gloucester,yes,"1,2,3,4,5,6",
+Paulsboro,Gloucester,yes,"1,2,3,4,5,6",
+West Deptford Township,Gloucester,no,"1,2,3,4",no retail class 5
+Woodbury,Gloucester,yes,"1,2,3,4,5,6",
+Woolwich Township,Gloucester,yes,"1,2,3,4,6",no retail class 5
+Bayonne,Hudson,yes,"1,2,3,4,5,6",
+East Newark,Hudson,yes,"1,2,3,4,5,6",
+Frenchtown,Hudson,yes,"5",retail only
+Harrison,Hudson,yes,"1,2,3,4,5,6",
+Hoboken,Hudson,yes,"3,5,6",
+Jersey City,Hudson,yes,"1,2,3,4,5,6",3 licenses advancing Jan 2026
+North Bergen,Hudson,yes,"1,2,3,4,5",
+Secaucus,Hudson,yes,"1,2,3,4,5,6",
+West New York,Hudson,yes,"5",retail only; reduced cap
+Flemington,Hunterdon,yes,"1,2,3,4,5,6",
+High Bridge,Hunterdon,yes,"1,2,3,4,5,6",
+Lambertville,Hunterdon,yes,"5",retail only
+Readington Township,Hunterdon,no,"1,2,3,4",no retail class 5
+West Amwell Township,Hunterdon,yes,"1,2,3,5",
+East Windsor,Mercer,yes,"5,6",RFP issued; PDF on town site
+Ewing Township,Mercer,yes,"1,2,3,4,5,6",MORATORIUM through Dec 31 2026
+Hamilton Township,Mercer,yes,"1,2,3,4,5,6",4 licenses max; previous RFQ Oct 2023
+Highstown Borough,Mercer,no,"1,2,3,4",no retail class 5
+Hopewell Township,Mercer,no,"1,2,3",no retail class 5
+Lawrence Township,Mercer,yes,"1,2,3,4,5,6",
+Pennington,Mercer,yes,"5,6",
+Trenton,Mercer,yes,"1,2,3,4,5,6",
+Carteret,Middlesex,yes,"1,2,3,4,5,6",
+Edison,Middlesex,yes,"1,2,3,4,5,6",
+Highland Park,Middlesex,yes,"5,6",
+Jamesburg,Middlesex,no,"3,4",no retail class 5
+New Brunswick,Middlesex,yes,"1,2,3,4,5,6",
+North Brunswick,Middlesex,yes,"1,2,3,4,5,6",
+South Plainfield,Middlesex,no,"2,3,4",no retail class 5
+South River,Middlesex,no,"1,2,3,4",no retail class 5
+Aberdeen Township,Monmouth,yes,"1,2,3,4,6",no retail class 5
+Eatontown,Monmouth,yes,"1,2,3,4,5",
+Freehold Borough,Monmouth,yes,"1,2,3,4,5",
+Highlands,Monmouth,yes,"1,2,3,4,5,6",
+Keyport,Monmouth,yes,"1,2,3,4,5,6",
+Long Branch,Monmouth,yes,"1,2,3,4,5,6",
+Matawan,Monmouth,yes,"4,5",
+Neptune City,Monmouth,yes,"5",retail only
+Neptune Township,Monmouth,yes,"1,2,3,4,5,6",
+Ocean Township,Monmouth,yes,"1,2,5",
+Red Bank,Monmouth,yes,"1,2,3,4,5,6",
+Shrewsbury Township,Monmouth,yes,"1,2,3,4,5,6",
+Tinton Falls,Monmouth,yes,"1,2,3,4,5,6",
+Boonton Town,Morris,yes,"3,5",
+Butler,Morris,yes,"5",retail only
+Dover,Morris,yes,"1,2,3,4,5,6",
+Jefferson Township,Morris,yes,"1,2,3,4,5,6",ALL 4 RETAIL LICENSES ISSUED; waitlist only
+Morristown,Morris,yes,"1,2,3,4,5,6",
+Parsippany-Troy Hills Township,Morris,no,"3,4",no retail class 5
+Pequannock Township,Morris,no,"1",no retail class 5
+Rockaway Borough,Morris,yes,"5",retail only
+Rockaway Township,Morris,yes,"1,2,3,4,5,6",
+Victory Gardens,Morris,yes,"1,2,3,4,5,6",
+Lakehurst,Ocean,yes,"1,2,3,4,5",
+Ocean Township,Ocean,yes,"1,2,3,4,5,6",
+Pine Beach,Ocean,yes,"1,2,3,4,5,6",
+South Toms River,Ocean,yes,"1,2,3,4,5,6",
+Surf City,Ocean,no,"none",opted in but no classes
+Bloomingdale,Passaic,yes,"5",retail only
+Haledon,Passaic,yes,"1,2,5",
+Little Falls,Passaic,yes,"1,2,3,4,6",no retail class 5
+Passaic,Passaic,no,"1,2,3,4",no retail class 5
+Paterson,Passaic,yes,"1,2,3,4,5,6",
+West Milford,Passaic,yes,"1,2,3,4,5,6",
+Carneys Point Township,Salem,yes,"1,2,3,4,5,6",
+Lower Alloways Creek Township,Salem,no,"1,2,3,4",no retail class 5
+Oldmans Township,Salem,no,"1,2,3",no retail class 5
+Penns Grove,Salem,yes,"1,2,3,4,5,6",
+Pennsville Township,Salem,yes,"1,2,3,4,6",no retail class 5
+Salem City,Salem,yes,"5,6",
+Bound Brook,Somerset,yes,"1,2,5",
+Franklin Township,Somerset,yes,"1,2,3,4,5,6",
+North Plainfield,Somerset,yes,"1,2,3,4,5",
+Somerville,Somerset,yes,"5",retail only
+South Bound Brook,Somerset,yes,"5,6",application activity Feb 2026
+Andover Borough,Sussex,yes,"1,2,3,4,5,6",
+Andover Township,Sussex,no,"1,2,3,4",no retail class 5
+Frankford Township,Sussex,yes,"1,2,4,6",no retail class 5
+Fredon Township,Sussex,no,"1",no retail class 5
+Newton,Sussex,yes,"1,2,3,4,5,6",
+Stanhope,Sussex,yes,"5,6",
+Sussex,Sussex,yes,"1,2,3,4,5,6",
+Vernon Township,Sussex,yes,"1,2,3,4,5,6",
+Elizabeth,Union,yes,"1,2,3,4,5",
+Linden,Union,no,"1,2",no retail class 5
+Plainfield,Union,yes,"1,2,3,4,5",
+Rahway,Union,yes,"1,2,3,4,6",no retail class 5
+Roselle,Union,yes,"1,2,3,4,5,6",
+Roselle Park,Union,yes,"1,2,3,4,5",
+Scotch Plains,Union,yes,"1,2,3,4,5,6",
+Springfield,Union,yes,"1,2,3,4,5,6",
+Union Township,Union,yes,"1,2,3,4,5,6",
+Belvidere,Warren,yes,"1,2,3,4,5,6",
+Frelinghuysen Township,Warren,no,"1,2,3",no retail class 5
+Hackettstown,Warren,no,"1,2,3",no retail class 5
+Harmony Township,Warren,no,"1,2,4,6",no retail class 5
+Oxford Township,Warren,no,"1,2,3,4",no retail class 5
+Pohatcong,Warren,yes,"5",retail only
+Washington Borough,Warren,yes,"1,2,3,4,5,6",
