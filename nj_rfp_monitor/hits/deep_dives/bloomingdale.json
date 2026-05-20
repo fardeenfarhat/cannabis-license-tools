@@ -1,0 +1,53 @@
+{
+  "municipality": "Bloomingdale",
+  "county": "Passaic",
+  "run_date": "2026-05-14T10:15:05.288607+00:00",
+  "ordinance": {
+    "found": true,
+    "is_prohibition": true,
+    "title": "Cannabis Retail Ordinance",
+    "ordinance_number": "15-2021",
+    "adopted_date": "2021-06-22",
+    "effective_date": "",
+    "license_classes": [
+      "Class 5 Retail"
+    ],
+    "allowed_zones": [],
+    "cap": "",
+    "application_fee": "",
+    "annual_fee": "",
+    "buffers": "500 feet from schools, recreation uses and public parks",
+    "hours": "10:00 AM – 10:00 PM Monday through Saturday, 11:00 AM – 7:00 PM Sunday",
+    "local_tax": "",
+    "text_excerpt": "Pursuant to Section 31b of the New Jersey Cannabis Regulatory, Enforcement Assistance, and Marketplace Modernization Act (P.L. 2021, c. 16), all cannabis establishments, cannabis distributors or cannabis delivery services are hereby prohibited from operating anywhere in the Borough of Bloomingdale, except for the delivery of cannabis items and related supplies by a licensed cannabis delivery service based and initiated from a cannabis delivery service licensed location outside of the Borough.",
+    "confidence": "high",
+    "url": "https://ecode360.com/36010208",
+    "runners_up": [
+      {
+        "url": "https://ecode360.com/35999331",
+        "ordinance_number": "",
+        "confidence": "low"
+      },
+      {
+        "url": "https://ecode360.com/36009396",
+        "ordinance_number": "",
+        "confidence": "low"
+      },
+      {
+        "url": "https://ecode360.com/36008941",
+        "ordinance_number": "",
+        "confidence": "low"
+      },
+      {
+        "url": "https://ecode360.com/36008846",
+        "ordinance_number": "",
+        "confidence": "low"
+      }
+    ]
+  },
+  "council_votes": [],
+  "zoning": {},
+  "rfp_signals": [],
+  "attorneys": [],
+  "draft_emails": []
+}

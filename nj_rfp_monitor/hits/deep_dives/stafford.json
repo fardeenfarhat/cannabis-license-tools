@@ -1,0 +1,31 @@
+{
+  "municipality": "Stafford",
+  "county": "",
+  "run_date": "2026-05-14T10:18:25.006137+00:00",
+  "ordinance": {
+    "found": false,
+    "url": "",
+    "title": "",
+    "ordinance_number": "",
+    "adopted_date": "",
+    "is_prohibition": false,
+    "queries_tried": [
+      "\"Stafford NJ\" cannabis ordinance site:ecode360.com",
+      "\"Stafford NJ\" cannabis ordinance site:library.municode.com",
+      "\"Stafford\" New Jersey cannabis retail ordinance Class 5",
+      "\"Stafford NJ\" cannabis dispensary ordinance"
+    ],
+    "note": "No ordinance found — verify manually"
+  },
+  "council_votes": {
+    "members": [],
+    "rollcall_found": false,
+    "needs_foia": true,
+    "vote_source_type": "none",
+    "vote_source_url": ""
+  },
+  "zoning": {},
+  "rfp_signals": [],
+  "attorneys": [],
+  "draft_emails": []
+}

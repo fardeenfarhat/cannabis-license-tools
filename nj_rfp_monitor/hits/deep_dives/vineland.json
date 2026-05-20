@@ -1,0 +1,498 @@
+{
+  "municipality": "Vineland",
+  "county": "Cumberland",
+  "run_date": "2026-05-20T09:40:46.333976+00:00",
+  "ordinance": {
+    "found": true,
+    "is_prohibition": false,
+    "title": "Cannabis Establishments",
+    "ordinance_number": "2021-42",
+    "adopted_date": "2021-07-13",
+    "effective_date": "",
+    "license_classes": [
+      "Class 5 Retail"
+    ],
+    "allowed_zones": [],
+    "cap": "no cap",
+    "application_fee": "",
+    "annual_fee": "",
+    "buffers": "",
+    "hours": "8:00 AM – 10:00 PM",
+    "local_tax": "",
+    "text_excerpt": "Cannabis establishments shall be permitted, within the City, only if the following requirements are complied with: The regulations of this section are subject to the enabling authority of the State of New Jersey and are subject to compliance with all statutes and/or regulations adopted by the State of New Jersey or its instrumentalities. If any provision of this section is inconsistent with the statutes and/or regulations of the State of New Jersey, the state statutes and/or regulations shall prevail.",
+    "confidence": "high",
+    "url": "https://ecode360.com/37930817",
+    "runners_up": [
+      {
+        "url": "https://ecode360.com/34251213",
+        "ordinance_number": "2019-20",
+        "confidence": "low"
+      },
+      {
+        "url": "https://ecode360.com/VI0225",
+        "ordinance_number": "",
+        "confidence": "low"
+      }
+    ]
+  },
+  "council_votes": {
+    "members": [
+      {
+        "name": "Paul Spinelli",
+        "role_at_vote": "",
+        "vote": "not_on_council_at_vote",
+        "sponsor": false,
+        "friendly": false,
+        "still_in_office": true,
+        "current_title": "Council President",
+        "email": "pspinelli@vinelandcity.org",
+        "phone": "(856) 364-0085",
+        "vote_source_url": "",
+        "vote_source_type": "",
+        "source": "current_roster"
+      },
+      {
+        "name": "Cruz Gomez",
+        "role_at_vote": "",
+        "vote": "not_on_council_at_vote",
+        "sponsor": false,
+        "friendly": false,
+        "still_in_office": true,
+        "current_title": "Council Vice President",
+        "email": "cgomez@vinelandcity.org",
+        "phone": "856-364-0191",
+        "vote_source_url": "",
+        "vote_source_type": "",
+        "source": "current_roster"
+      },
+      {
+        "name": "Dr. Elizabeth Arthur",
+        "role_at_vote": "",
+        "vote": "not_on_council_at_vote",
+        "sponsor": false,
+        "friendly": false,
+        "still_in_office": true,
+        "current_title": "Councilwoman",
+        "email": "earthur@vinelandcity.org",
+        "phone": "(856) 364-0955",
+        "vote_source_url": "",
+        "vote_source_type": "",
+        "source": "current_roster"
+      },
+      {
+        "name": "Scott English",
+        "role_at_vote": "",
+        "vote": "not_on_council_at_vote",
+        "sponsor": false,
+        "friendly": false,
+        "still_in_office": true,
+        "current_title": "Councilman",
+        "email": "senglish@vinelandcity.org",
+        "phone": "856-364-1161",
+        "vote_source_url": "",
+        "vote_source_type": "",
+        "source": "current_roster"
+      },
+      {
+        "name": "Albert Vargas",
+        "role_at_vote": "",
+        "vote": "not_on_council_at_vote",
+        "sponsor": false,
+        "friendly": false,
+        "still_in_office": true,
+        "current_title": "Councilman",
+        "email": "avargas@vinelandcity.org",
+        "phone": "(856) 364-1113",
+        "vote_source_url": "",
+        "vote_source_type": "",
+        "source": "current_roster"
+      }
+    ],
+    "rollcall_found": false,
+    "needs_foia": true,
+    "vote_source_type": "none",
+    "vote_source_url": ""
+  },
+  "zoning": {
+    "found": false,
+    "reason": "zones_unknown",
+    "zones": [],
+    "cannabis_overlay": null,
+    "zoning_map_url": "",
+    "gis_portal_url": "",
+    "zones_source": "unknown",
+    "needs_foia": true,
+    "foia_note": "Request zoning officer confirm which zones permit cannabis retail under 2021-42 and provide the official zoning map.",
+    "queries_tried": [
+      "\"Vineland NJ\" cannabis zoning site:ecode360.com",
+      "\"Vineland NJ\" \"cannabis overlay\" OR \"cannabis retail zone\" ordinance",
+      "\"Vineland NJ\" cannabis \"permitted use\" zoning district"
+    ],
+    "confidence": "low"
+  },
+  "rfp_signals": {
+    "found": true,
+    "signals": [
+      {
+        "type": "RECENT_AWARDS",
+        "url": "https://www.nj.gov/cannabis/documents/businesses/Permits%20and%20Renewals/Columbia%20Care%20Rec%20Packet.pdf",
+        "title": "NJ CRC license listing — Vineland",
+        "snippet": "1 cannabis license(s) found via CRC",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "high",
+        "source_strategy": "S1",
+        "extracted_at": "2026-05-20T09:42:12.897907+00:00"
+      },
+      {
+        "type": "RECENT_AWARDS",
+        "url": "https://www.nj.gov/cannabis/businesses/permitted/",
+        "title": "NJ CRC license listing — Vineland",
+        "snippet": "1 cannabis license(s) found via CRC",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "high",
+        "source_strategy": "S1",
+        "extracted_at": "2026-05-20T09:42:16.333140+00:00"
+      },
+      {
+        "type": "ORDINANCE_AMENDMENT",
+        "title": "Cannabis Establishments Regulations in Vineland",
+        "snippet": "The regulations of this article are subject to the enabling authority of the State of New Jersey and are subject to compliance with all statutes and/or regulations adopted by the State of New Jersey or its instrumentalities. Amendments noted where applicable. The regulations include requirements for cannabis establishments, including licensing and operational standards.",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "2024-05-28",
+        "confidence": "high",
+        "source_strategy": "S2",
+        "url": "https://ecode360.com/37930817",
+        "extracted_at": "2026-05-20T09:42:40.305778+00:00"
+      },
+      {
+        "type": "ORDINANCE_AMENDMENT",
+        "title": "",
+        "snippet": "[Skip to content](https://www.vinelandcity.org/legal-notices/#content)\n\nHit enter to search or ESC to closeSearch\n\n[Close Search](https://www.vinelandcity.org/legal-notices/#)\n\n# Legal Notices\n\n## Legal Notices\n\n#### Legal notices are used to facilitate transparency and accountability by informing the public of opportunities to share views and participate in local government decision-making. Notic",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "low",
+        "url": "https://www.vinelandcity.org/legal-notices/",
+        "source_strategy": "S2",
+        "extracted_at": "2026-05-20T09:42:43.544978+00:00"
+      },
+      {
+        "type": "ORDINANCE_AMENDMENT",
+        "title": "Vineland's Novel Approach to Cannabis Businesses",
+        "snippet": "Vineland is considering changes to its cannabis licensing options, proposing to draft an ordinance to establish a committee that would review cannabis business proposals. This ordinance is currently paused due to council members' doubts about the concept.",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "medium",
+        "source_strategy": "S2",
+        "url": "https://www.thedailyjournal.com/story/news/local/2022/11/21/vineland-nj-cannabis-business-license-rfp/69654875007/",
+        "extracted_at": "2026-05-20T09:42:50.191491+00:00"
+      },
+      {
+        "type": "ORDINANCE_AMENDMENT",
+        "title": "Ordinance Amending Cannabis Establishments",
+        "snippet": "ORDINANCE NO. 2026-17, ORDINANCE AMENDING ORDINANCE 2021-42, AS AMENDED, CHAPTER 266 ARTICLE I, SECTION 266-3 OF THE CODE OF THE CITY OF VINELAND ENTITLED CANNABIS ESTABLISHMENTS; LICENSING, APPLICATIONS, QUALIFICATIONS AND STANDARDS.",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "high",
+        "source_strategy": "S3",
+        "url": "https://vinelandnj.portal.civicclerk.com/event/102/files/attachment/2669",
+        "extracted_at": "2026-05-20T09:44:15.351025+00:00"
+      },
+      {
+        "type": "ORDINANCE_AMENDMENT",
+        "title": "Ordinance Amendments for Cannabis Activity",
+        "snippet": "PUBLIC HEARING and FINAL READING on ORDINANCE NO. 2025-20, ORDINANCE AMENDING ORDINANCE 2019-57, ORDINANCE 2022-49 AND ORDINANCE 2022-75, CHAPTER 687, PART 4, ARTICLE XVIII OF THE CODE OF THE CITY OF VINELAND ENTITLED WATER-SEWER UTILITY; RIGHTS RESERVED; RATES.",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "2025-03-11",
+        "confidence": "high",
+        "source_strategy": "S3",
+        "url": "https://vinelandnj.portal.civicclerk.com/event/37/overview",
+        "extracted_at": "2026-05-20T09:44:41.811256+00:00"
+      },
+      {
+        "type": "RECENT_AWARDS",
+        "title": "Vineland Cannabis Licensing Resolutions",
+        "snippet": "Several resolutions related to cannabis licensing were introduced, including the rejection of an application for a cannabis class 1 cultivating license by Arise Cannabis NJ, LLC, and extensions granted to Wiseco NJ LLC and Bud Bazaar LLC for their cannabis manufacturing and retail licenses, respectively.",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "high",
+        "source_strategy": "S3",
+        "url": "https://vinelandnj.portal.civicclerk.com/event/37/files/attachment/498",
+        "extracted_at": "2026-05-20T09:44:44.912487+00:00"
+      }
+    ],
+    "awarded_licenses": [
+      {
+        "licensee": "COLUMBIA CARE NEW JERSEY LLC",
+        "license_class": "Class 5 - Retailer",
+        "license_status": "annual",
+        "address": "1062 N DELSEA DR, VINELAND, CUMBERLAND NJ - 08360",
+        "license_number": "RE000010",
+        "source_url": "https://www.nj.gov/cannabis/documents/businesses/Permits%20and%20Renewals/Columbia%20Care%20Rec%20Packet.pdf"
+      },
+      {
+        "licensee": "Columbia Care NJ/The Cannabist",
+        "license_class": "Class 5 Retail",
+        "license_status": "annual",
+        "address": "Vineland",
+        "license_number": "",
+        "source_url": "https://www.nj.gov/cannabis/businesses/permitted/"
+      }
+    ],
+    "cap_status": {
+      "cap": "no cap",
+      "awarded": 2,
+      "slots_open": null,
+      "saturated": false,
+      "note": "Ordinance imposes no cap"
+    },
+    "next_action_date": "",
+    "needs_foia": false,
+    "confidence": "medium",
+    "queries_tried": [
+      "\"Vineland\" site:nj.gov cannabis license",
+      "\"Vineland NJ\" cannabis RFP OR \"request for proposal\"",
+      "\"Vineland NJ\" cannabis dispensary application",
+      "\"Vineland NJ\" council agenda cannabis 2026",
+      "\"Vineland NJ\" \"council meeting\" cannabis ordinance",
+      "\"Vineland\" cannabis dispensary 2026 NJ",
+      "\"Vineland\" NJ cannabis license awarded OR approved"
+    ],
+    "cached_at": "2026-05-20T09:45:34.478130+00:00"
+  },
+  "attorneys": {
+    "found": true,
+    "attorneys": [
+      {
+        "name": "Stern Development, LLC",
+        "firm": "",
+        "email": "",
+        "phone": "",
+        "appearances": [
+          {
+            "board": "legal_notice",
+            "matter": "Zoning Variance",
+            "applicant": "Stern Development, LLC",
+            "date": "",
+            "outcome": "unknown",
+            "source_url": "https://www.vinelandcity.org/legal-notices/"
+          }
+        ],
+        "this_town_wins": 0,
+        "this_town_losses": 0,
+        "cannabis_experience": false,
+        "cannabis_reps": 0,
+        "sources": [
+          "https://www.vinelandcity.org/legal-notices/"
+        ],
+        "confidence": "medium",
+        "this_town_win_rate": 0.0,
+        "score": 6,
+        "tier": "C"
+      },
+      {
+        "name": "Brosh Associates, LLC",
+        "firm": "",
+        "email": "",
+        "phone": "",
+        "appearances": [
+          {
+            "board": "legal_notice",
+            "matter": "Zoning Variance",
+            "applicant": "Brosh Associates, LLC",
+            "date": "",
+            "outcome": "unknown",
+            "source_url": "https://www.vinelandcity.org/legal-notices/"
+          }
+        ],
+        "this_town_wins": 0,
+        "this_town_losses": 0,
+        "cannabis_experience": false,
+        "cannabis_reps": 0,
+        "sources": [
+          "https://www.vinelandcity.org/legal-notices/"
+        ],
+        "confidence": "medium",
+        "this_town_win_rate": 0.0,
+        "score": 6,
+        "tier": "C"
+      },
+      {
+        "name": "Restek Corporation",
+        "firm": "",
+        "email": "",
+        "phone": "",
+        "appearances": [
+          {
+            "board": "legal_notice",
+            "matter": "Zoning Variance",
+            "applicant": "Restek Corporation",
+            "date": "",
+            "outcome": "unknown",
+            "source_url": "https://www.vinelandcity.org/legal-notices/"
+          }
+        ],
+        "this_town_wins": 0,
+        "this_town_losses": 0,
+        "cannabis_experience": false,
+        "cannabis_reps": 0,
+        "sources": [
+          "https://www.vinelandcity.org/legal-notices/"
+        ],
+        "confidence": "medium",
+        "this_town_win_rate": 0.0,
+        "score": 6,
+        "tier": "C"
+      },
+      {
+        "name": "Frederick Cristelli",
+        "firm": "",
+        "email": "",
+        "phone": "",
+        "appearances": [
+          {
+            "board": "legal_notice",
+            "matter": "Zoning Variance",
+            "applicant": "Frederick Cristelli",
+            "date": "",
+            "outcome": "unknown",
+            "source_url": "https://www.vinelandcity.org/legal-notices/"
+          }
+        ],
+        "this_town_wins": 0,
+        "this_town_losses": 0,
+        "cannabis_experience": false,
+        "cannabis_reps": 0,
+        "sources": [
+          "https://www.vinelandcity.org/legal-notices/"
+        ],
+        "confidence": "medium",
+        "this_town_win_rate": 0.0,
+        "score": 6,
+        "tier": "C"
+      },
+      {
+        "name": "Lynn Richard",
+        "firm": "",
+        "email": "",
+        "phone": "",
+        "appearances": [
+          {
+            "board": "legal_notice",
+            "matter": "Zoning Variance",
+            "applicant": "Lynn Richard",
+            "date": "",
+            "outcome": "unknown",
+            "source_url": "https://www.vinelandcity.org/legal-notices/"
+          }
+        ],
+        "this_town_wins": 0,
+        "this_town_losses": 0,
+        "cannabis_experience": false,
+        "cannabis_reps": 0,
+        "sources": [
+          "https://www.vinelandcity.org/legal-notices/"
+        ],
+        "confidence": "medium",
+        "this_town_win_rate": 0.0,
+        "score": 6,
+        "tier": "C"
+      }
+    ],
+    "top_picks": [],
+    "town_solicitor": {
+      "name": "Michael Malinsky",
+      "firm": "",
+      "role": "town solicitor",
+      "source_url": "https://www.vinelandcity.org/planning-board/",
+      "conflict_note": "Serves as town solicitor/municipal attorney — conflict of interest for applicant representation."
+    },
+    "needs_foia": false,
+    "confidence": "medium",
+    "queries_tried": [
+      "S1:solicitor",
+      "S2:planning_minutes",
+      "S3:zba_minutes",
+      "S4:council_minutes",
+      "S5:legal_notices",
+      "S6:cannabis_bonus"
+    ]
+  },
+  "draft_emails": [
+    {
+      "to_role": "Town Clerk",
+      "recipient_name": null,
+      "recipient_email": null,
+      "subject": "Cannabis Retail RFP Inquiry — Vineland",
+      "body": "Dear Municipal Clerk,\n\nI hope this note finds you well. My name is [Your Name] and I represent a prospective cannabis retail applicant interested in Vineland.\n\nI am writing to inquire about the timeline and process for the upcoming cannabis retail license RFP. Specifically:\n\n  1. When is the RFP expected to be released?\n  2. Where will the RFP be posted (town website, state portal, etc.)?\n  3. Who is the designated point of contact for application questions?\n\nAny guidance you can provide would be greatly appreciated.\n\nThank you for your time.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": [
+        "https://www.nj.gov/cannabis/documents/businesses/Permits%20and%20Renewals/Columbia%20Care%20Rec%20Packet.pdf",
+        "https://www.nj.gov/cannabis/businesses/permitted/",
+        "https://ecode360.com/37930817"
+      ]
+    },
+    {
+      "to_role": "Council Member",
+      "recipient_name": null,
+      "recipient_email": null,
+      "subject": "Introduction — Cannabis Retail Applicant in Vineland",
+      "body": "Dear Council Member,\n\nI wanted to reach out and introduce myself. My name is [Your Name] and I represent a group exploring a cannabis retail application in Vineland.\n\nI appreciated Vineland's thoughtful approach to 2021-42. We share the community's interest in a responsible, locally-rooted operation.\n\nI would welcome the opportunity to connect briefly at your convenience — even a short call to understand the community's priorities would be invaluable.\n\nThank you for your public service.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": []
+    },
+    {
+      "to_role": "Zoning Officer",
+      "recipient_name": null,
+      "recipient_email": null,
+      "subject": "Cannabis Retail Zoning Inquiry — Vineland",
+      "body": "Dear Zoning Officer,\n\nMy name is [Your Name] and I am researching a potential cannabis retail application in Vineland.\n\nI understand that cannabis retail is permitted in (zones not yet confirmed). I have a few questions:\n\n  1. Could you confirm which specific zones or overlay districts allow Class 5 retail?\n  2. Is a zoning overlay map or GIS layer available that shows eligible parcels?\n  3. Are there any pending zone amendments that might affect eligibility?\n\nAny materials you can share would be very helpful as we evaluate sites.\n\nThank you for your time.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": []
+    },
+    {
+      "to_role": "Attorney",
+      "recipient_name": "Stern Development, LLC",
+      "recipient_email": null,
+      "subject": "Cannabis Retail Representation Inquiry — Vineland",
+      "body": "Dear Stern Development, LLC,\n\nMy name is [Your Name] and I represent a group preparing a cannabis retail license application in Vineland.\n\nI came across Stern Development, LLC's work before Vineland's boards and wanted to reach out to gauge your interest and availability to represent an applicant in this process.\n\nWe are at an early stage and would value a brief introductory call to understand your approach and confirm capacity.\n\nPlease let me know if you are open to connecting.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": [
+        "https://www.vinelandcity.org/legal-notices/"
+      ]
+    }
+  ]
+}

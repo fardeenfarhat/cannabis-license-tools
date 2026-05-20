@@ -1,0 +1,186 @@
+{
+  "municipality": "Hackensack",
+  "county": "Bergen",
+  "run_date": "2026-05-20T12:13:33.421442+00:00",
+  "ordinance": {
+    "found": true,
+    "is_prohibition": false,
+    "title": "Hackensack Cannabis Ordinance",
+    "ordinance_number": "2021-14",
+    "adopted_date": "",
+    "effective_date": "",
+    "license_classes": [],
+    "allowed_zones": [],
+    "cap": "",
+    "application_fee": "",
+    "annual_fee": "",
+    "buffers": "",
+    "hours": "",
+    "local_tax": "",
+    "text_excerpt": "We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.\n\nNecessary\n\nThese cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.\n\nOffOn\n\nAnalytics\n\nThese cookies help us improve the site by tracking which pages are most popular and how visitors move around the site.\n\nOffOn\n\nWe use cookies on our site to enh",
+    "confidence": "low",
+    "url": "https://ecode360.com/38545125",
+    "runners_up": [
+      {
+        "url": "https://ecode360.com/38551188",
+        "ordinance_number": "2021-13",
+        "confidence": "low"
+      },
+      {
+        "url": "https://www.hackensack.org/wp-content/uploads/2024/05/Ordinance-42-2024-Cannabis-Manufacturing-License.docx",
+        "ordinance_number": "",
+        "confidence": "low"
+      },
+      {
+        "url": "https://southhackensacknj.org/clerk/documents/2025-01%20Ordinance%20Cannabis%20Zoning.pdf",
+        "ordinance_number": "2025-01",
+        "confidence": "low"
+      },
+      {
+        "url": "https://southhackensacknj.org/committee/documents/2022/Agenda%2011-10-22.pdf",
+        "ordinance_number": "2022-06",
+        "confidence": "low"
+      },
+      {
+        "url": "https://ecode360.com/38141625",
+        "ordinance_number": "",
+        "confidence": "low"
+      },
+      {
+        "url": "https://weedmaps.com/dispensaries/in/united-states/new-jersey/hackensack",
+        "ordinance_number": "",
+        "confidence": "low"
+      },
+      {
+        "url": "https://www.yelp.com/search?cflt=cannabisdispensaries&find_loc=Hackensack%2C+NJ+07601",
+        "ordinance_number": "",
+        "confidence": "low"
+      }
+    ]
+  },
+  "council_votes": {
+    "members": [],
+    "rollcall_found": false,
+    "needs_foia": true,
+    "vote_source_type": "none",
+    "vote_source_url": ""
+  },
+  "zoning": {
+    "found": false,
+    "reason": "zones_unknown",
+    "zones": [],
+    "cannabis_overlay": null,
+    "zoning_map_url": "",
+    "gis_portal_url": "",
+    "zones_source": "unknown",
+    "needs_foia": true,
+    "foia_note": "Request zoning officer confirm which zones permit cannabis retail under 2021-14 and provide the official zoning map.",
+    "queries_tried": [
+      "\"Hackensack NJ\" cannabis zoning site:ecode360.com",
+      "\"Hackensack NJ\" \"cannabis overlay\" OR \"cannabis retail zone\" ordinance",
+      "\"Hackensack NJ\" cannabis \"permitted use\" zoning district",
+      "\"Hackensack NJ\" zoning \"permitted uses\" commercial OR retail OR business site:ecode360.com",
+      "\"Hackensack NJ\" zoning code chapter commercial industrial \"permitted use\" retail"
+    ],
+    "confidence": "low"
+  },
+  "rfp_signals": {
+    "found": true,
+    "signals": [
+      {
+        "type": "LITIGATION",
+        "title": "",
+        "snippet": "## NOTE: To receive addenda or modification to this Request for Qualifications, please provide\n\n## the Municipal Clerk with Respondent’s name, email address, and phone number upon receipt\n\n## of this document.\n\n## REQUEST FOR QUALIFICATIONS\n\n## VARIOUS MUNICIPAL PROFESSIONAL POSITIONS\n\n## FOR THE PERIOD JANUARY 1, 2026 through DECEMBER 31, 2026\n\n## ISSUE DATE: NOVEMBER 24, 2025\n\n## DUE DATE: DECEM",
+        "application_deadline": "DUE DATE: DECEMBER 17, 2025",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "low",
+        "url": "https://www.southhackensacknj.org/wordpress/wp-content/uploads/2025/11/RFQ-2026.pdf",
+        "source_strategy": "S2",
+        "extracted_at": "2026-05-20T12:20:22.790095+00:00"
+      }
+    ],
+    "awarded_licenses": [],
+    "cap_status": {
+      "cap": "",
+      "awarded": 0,
+      "slots_open": null,
+      "saturated": null,
+      "note": "Cap not extracted from ordinance"
+    },
+    "next_action_date": "",
+    "needs_foia": false,
+    "confidence": "medium",
+    "queries_tried": [
+      "\"Hackensack\" site:nj.gov cannabis license",
+      "\"Hackensack\" NJ cannabis \"Class 5\" license issued",
+      "NJ Cannabis Regulatory Commission \"Hackensack\" approved",
+      "\"Hackensack NJ\" cannabis RFP OR \"request for proposal\"",
+      "\"Hackensack NJ\" cannabis dispensary application",
+      "\"Hackensack NJ\" council agenda cannabis 2026",
+      "\"Hackensack NJ\" \"council meeting\" cannabis ordinance",
+      "\"Hackensack\" cannabis dispensary 2026 NJ",
+      "\"Hackensack\" NJ cannabis license awarded OR approved"
+    ],
+    "cached_at": "2026-05-20T12:21:07.530156+00:00"
+  },
+  "attorneys": {
+    "found": false,
+    "attorneys": [],
+    "top_picks": [],
+    "town_solicitor": null,
+    "needs_foia": true,
+    "confidence": "low",
+    "queries_tried": [
+      "S1:solicitor",
+      "S2:planning_minutes",
+      "S3:zba_minutes",
+      "S4:council_minutes",
+      "S5:legal_notices",
+      "S6:cannabis_bonus"
+    ]
+  },
+  "draft_emails": [
+    {
+      "to_role": "Town Clerk",
+      "recipient_name": null,
+      "recipient_email": null,
+      "subject": "Cannabis Retail RFP Inquiry — Hackensack",
+      "body": "Dear Municipal Clerk,\n\nI hope this note finds you well. My name is [Your Name] and I represent a prospective cannabis retail applicant interested in Hackensack.\n\nI am writing to inquire about the timeline and process for the upcoming cannabis retail license RFP. Specifically:\n\n  1. When is the RFP expected to be released?\n  2. Where will the RFP be posted (town website, state portal, etc.)?\n  3. Who is the designated point of contact for application questions?\n\nAny guidance you can provide would be greatly appreciated.\n\nThank you for your time.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": [
+        "https://www.southhackensacknj.org/wordpress/wp-content/uploads/2025/11/RFQ-2026.pdf"
+      ]
+    },
+    {
+      "to_role": "Council Member",
+      "recipient_name": null,
+      "recipient_email": null,
+      "subject": "Introduction — Cannabis Retail Applicant in Hackensack",
+      "body": "Dear Council Member,\n\nI wanted to reach out and introduce myself. My name is [Your Name] and I represent a group exploring a cannabis retail application in Hackensack.\n\nI appreciated Hackensack's thoughtful approach to 2021-14. We share the community's interest in a responsible, locally-rooted operation.\n\nI would welcome the opportunity to connect briefly at your convenience — even a short call to understand the community's priorities would be invaluable.\n\nThank you for your public service.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": []
+    },
+    {
+      "to_role": "Zoning Officer",
+      "recipient_name": null,
+      "recipient_email": null,
+      "subject": "Cannabis Retail Zoning Inquiry — Hackensack",
+      "body": "Dear Zoning Officer,\n\nMy name is [Your Name] and I am researching a potential cannabis retail application in Hackensack.\n\nI understand that cannabis retail is permitted in (zones not yet confirmed). I have a few questions:\n\n  1. Could you confirm which specific zones or overlay districts allow Class 5 retail?\n  2. Is a zoning overlay map or GIS layer available that shows eligible parcels?\n  3. Are there any pending zone amendments that might affect eligibility?\n\nAny materials you can share would be very helpful as we evaluate sites.\n\nThank you for your time.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": []
+    },
+    {
+      "to_role": "Attorney",
+      "recipient_name": null,
+      "recipient_email": null,
+      "subject": "Cannabis Retail Representation Inquiry — Hackensack",
+      "body": "Dear Counsel,\n\nMy name is [Your Name] and I represent a group preparing a cannabis retail license application in Hackensack.\n\nI came across your firm's work before Hackensack's boards and wanted to reach out to gauge your interest and availability to represent an applicant in this process.\n\nWe are at an early stage and would value a brief introductory call to understand your approach and confirm capacity.\n\nPlease let me know if you are open to connecting.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": []
+    }
+  ]
+}

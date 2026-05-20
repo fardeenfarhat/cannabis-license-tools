@@ -1,0 +1,275 @@
+{
+  "municipality": "Upper Township",
+  "county": "",
+  "run_date": "2026-05-20T12:17:41.710988+00:00",
+  "ordinance": {
+    "found": false,
+    "url": "",
+    "title": "",
+    "ordinance_number": "",
+    "adopted_date": "",
+    "is_prohibition": false,
+    "queries_tried": [
+      "\"Upper Township NJ\" cannabis ordinance site:ecode360.com",
+      "\"Upper Township NJ\" cannabis ordinance site:library.municode.com",
+      "\"Upper Township\" New Jersey cannabis retail ordinance Class 5",
+      "\"Upper Township NJ\" cannabis dispensary ordinance"
+    ],
+    "note": "No ordinance found — verify manually"
+  },
+  "council_votes": {
+    "members": [],
+    "rollcall_found": false,
+    "needs_foia": true,
+    "vote_source_type": "none",
+    "vote_source_url": ""
+  },
+  "zoning": {
+    "found": false,
+    "reason": "no_data",
+    "zones": [],
+    "cannabis_overlay": null,
+    "zoning_map_url": "",
+    "gis_portal_url": "",
+    "zones_source": "supplied",
+    "needs_foia": true,
+    "foia_note": "Request zoning officer confirm permitted zones and provide the official zoning map for cannabis retail in Upper Township.",
+    "queries_tried": [],
+    "confidence": "low"
+  },
+  "rfp_signals": {
+    "found": true,
+    "signals": [
+      {
+        "type": "RECENT_AWARDS",
+        "url": "https://shorelocalnews.com/upper-township-advances-cannabis-retail-plan-after-divided-hearing/",
+        "title": "NJ CRC license listing — Upper Township",
+        "snippet": "1 cannabis license(s) found via CRC",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "high",
+        "source_strategy": "S1",
+        "extracted_at": "2026-05-20T08:15:10.240916+00:00"
+      },
+      {
+        "type": "LIVE_RFP",
+        "title": "Request for Proposals Addendum #1 for Class 5 Cannabis Retail Sales License",
+        "snippet": "This Addendum is issued to modify, clarify, correct, supplement, or revise the above-referenced Request for Proposals for a Class 5 Cannabis Retail Sales License in Upper Township, New Jersey. The original RFP due date is June 23, 2026, and remains unchanged.",
+        "application_deadline": "2026-06-23",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "high",
+        "source_strategy": "S2",
+        "url": "https://uppertownship.com/wp-content/uploads/2026/04/Addendum-1-for-RFP-for-Class-5-Cannabis-Retail-Sales-License.pdf",
+        "extracted_at": "2026-05-20T08:15:19.467419+00:00"
+      },
+      {
+        "type": "LIVE_RFP",
+        "title": "Notice of RFP – Class 5 Cannabis Retail Sales License",
+        "snippet": "Notice of RFP – Class 5 Cannabis Retail Sales License in Upper Township, New Jersey – Proposals due Tuesday June 23, 2026 at 2:00 pm.",
+        "application_deadline": "2026-06-23",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "high",
+        "source_strategy": "S4",
+        "url": "https://uppertownship.com/legal-notices/",
+        "extracted_at": "2026-05-20T08:17:03.013389+00:00"
+      },
+      {
+        "type": "ORDINANCE_AMENDMENT",
+        "title": "2026 Ordinances",
+        "snippet": "An Ordinance amending Chapter 20, Zoning, of the Code of Upper Township to create a Cannabis Overlay Zone within the CM-2 Zoning District and to allow Class 5 Cannabis Retail Sales within the Cannabis Overlay District. Additional amendments relate to licensing and taxation of cannabis businesses.",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "2026-05-26",
+        "confidence": "high",
+        "source_strategy": "S4",
+        "url": "https://uppertownship.com/general-information/upper-township-ordinances/2026-ordinances/",
+        "extracted_at": "2026-05-20T08:17:10.408110+00:00"
+      },
+      {
+        "type": "ORDINANCE_AMENDMENT",
+        "title": "Upper Township advances plan for cannabis sales near Ocean City",
+        "snippet": "Officials in Upper Township have taken the first formal steps toward allowing a cannabis dispensary within a limited commercial corridor near one of the primary gateways to Ocean City. At a recent Township Committee meeting, members unanimously approved three ordinances that would permit cannabis retail sales within a newly created overlay zone along Roosevelt Boulevard.",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "2026-02-23",
+        "confidence": "high",
+        "source_strategy": "S5",
+        "url": "https://shorelocalnews.com/upper-township-advances-plan-for-cannabis-sales-near-ocean-city/",
+        "extracted_at": "2026-05-20T08:17:23.684055+00:00"
+      },
+      {
+        "type": "RECENT_AWARDS",
+        "title": "",
+        "snippet": "REGULAR MEETING OF THE TOWNSHIP COMMITTEE –7:30 P.M.\n\nCALL TO ORDER\n\nSUNSHINE ANNOUNCEMENT\n\nMayor Palombo read the following Open Public meeting notice into the record.\n“In compliance with the Open Public Meetings Law, I wish to state that on May 7, 2021 the notice of\nthis meeting of the Upper Township Committee was posted on the official Township Bulletin Board,\nthe Upper Township Website, and th",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "low",
+        "url": "https://uppertownship.com/wp-content/uploads/2021/05/05-10-2021-Minutes.pdf",
+        "source_strategy": "S5",
+        "extracted_at": "2026-05-20T08:17:44.384817+00:00"
+      },
+      {
+        "type": "ORDINANCE_AMENDMENT",
+        "title": "Zoning Chapter of the Township of Upper",
+        "snippet": "This Chapter is adopted pursuant to N.J.S.A. 40:55D-1 et seq., in order to promote and protect the public health, safety, morals and general welfare. All classes of cannabis establishments or cannabis distributors or cannabis delivery services are expressly prohibited in all zones and zoning districts in the Township.",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "2021-05-10",
+        "confidence": "high",
+        "source_strategy": "S5",
+        "url": "https://ecode360.com/35460787",
+        "extracted_at": "2026-05-20T08:17:48.579875+00:00"
+      },
+      {
+        "type": "ORDINANCE_AMENDMENT",
+        "title": "Ordinance No. 002-2026",
+        "snippet": "An ordinance amending Chapter 4, General Licensing, of the Code of Upper Township, in order to establish annual licensing and registration fees in relation to cannabis retail and delivery businesses.",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "2026-02-23",
+        "confidence": "high",
+        "source_strategy": "S5",
+        "url": "https://uppertownship.com/wp-content/uploads/2026/02/002-2026-Intro-Cannabis-Licensing-Ordinance.pdf",
+        "extracted_at": "2026-05-20T08:17:59.663656+00:00"
+      },
+      {
+        "type": "RECENT_AWARDS",
+        "title": "Upper Township Approves Cannabis Retail Shop",
+        "snippet": "Township Committee voted unanimously Feb. 25 to allow one retail cannabis shop on Roosevelt Boulevard just outside Ocean City, despite numerous pleas for the five members not to do so. The next step is to solicit bids and name a licensee.",
+        "application_deadline": "",
+        "questions_deadline": "",
+        "window_opens": "",
+        "window_closes": "",
+        "moratorium_expires": "",
+        "amendment_vote_date": "",
+        "confidence": "high",
+        "source_strategy": "S5",
+        "url": "https://ocnjsentinel.com/upper-township-oks-cannabis-sales-despite-public-opposition/",
+        "extracted_at": "2026-05-20T08:18:03.141457+00:00"
+      }
+    ],
+    "awarded_licenses": [
+      {
+        "licensee": "To be determined",
+        "license_class": "Class 5 Retail",
+        "license_status": "pending",
+        "address": "Roosevelt Boulevard, Upper Township, NJ",
+        "license_number": "",
+        "source_url": "https://shorelocalnews.com/upper-township-advances-cannabis-retail-plan-after-divided-hearing/"
+      }
+    ],
+    "cap_status": {
+      "cap": 1,
+      "awarded": 0,
+      "slots_open": 1,
+      "saturated": false,
+      "note": ""
+    },
+    "next_action_date": "2026-05-26",
+    "needs_foia": false,
+    "confidence": "high",
+    "queries_tried": [
+      "\"Upper Township\" site:nj.gov cannabis license",
+      "\"Upper Township\" NJ cannabis \"Class 5\" license issued",
+      "\"Upper Township NJ\" cannabis RFP OR \"request for proposal\"",
+      "\"Upper Township NJ\" cannabis \"request for qualifications\" OR RFQ",
+      "\"Upper Township NJ\" cannabis dispensary application",
+      "\"Upper Township NJ\" council agenda cannabis 2026",
+      "\"Upper Township NJ\" \"council meeting\" cannabis ordinance",
+      "\"Upper Township NJ\" planning board cannabis",
+      "\"Upper Township\" cannabis site:bidnetdirect.com",
+      "\"Upper Township\" cannabis site:gov.deals",
+      "\"Upper Township\" cannabis NJ \"bid opportunity\" OR \"RFP\"",
+      "\"Upper Township\" cannabis dispensary 2026 NJ",
+      "\"Upper Township\" NJ cannabis lawsuit OR litigation",
+      "\"Upper Township\" NJ cannabis license awarded OR approved"
+    ],
+    "cached_at": "2026-05-20T08:18:03.153394+00:00"
+  },
+  "attorneys": {
+    "found": false,
+    "attorneys": [],
+    "top_picks": [],
+    "town_solicitor": null,
+    "needs_foia": true,
+    "confidence": "low",
+    "queries_tried": [
+      "S1:solicitor",
+      "S2:planning_minutes",
+      "S3:zba_minutes",
+      "S4:council_minutes",
+      "S5:legal_notices",
+      "S6:cannabis_bonus"
+    ]
+  },
+  "draft_emails": [
+    {
+      "to_role": "Town Clerk",
+      "recipient_name": null,
+      "recipient_email": null,
+      "subject": "Cannabis Retail RFP Inquiry — Upper Township",
+      "body": "Dear Municipal Clerk,\n\nI hope this note finds you well. My name is [Your Name] and I represent a prospective cannabis retail applicant interested in Upper Township.\n\nI am writing to inquire about the timeline and process for the upcoming cannabis retail license RFP. Specifically:\n\n  1. When is the RFP expected to be released?\n  2. Where will the RFP be posted (town website, state portal, etc.)?\n  3. Who is the designated point of contact for application questions?\n\nAny guidance you can provide would be greatly appreciated.\n\nThank you for your time.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": [
+        "https://shorelocalnews.com/upper-township-advances-cannabis-retail-plan-after-divided-hearing/",
+        "https://uppertownship.com/wp-content/uploads/2026/04/Addendum-1-for-RFP-for-Class-5-Cannabis-Retail-Sales-License.pdf",
+        "https://uppertownship.com/legal-notices/"
+      ]
+    },
+    {
+      "to_role": "Council Member",
+      "recipient_name": null,
+      "recipient_email": null,
+      "subject": "Introduction — Cannabis Retail Applicant in Upper Township",
+      "body": "Dear Council Member,\n\nI wanted to reach out and introduce myself. My name is [Your Name] and I represent a group exploring a cannabis retail application in Upper Township.\n\nI appreciated Upper Township's thoughtful approach to the cannabis ordinance. We share the community's interest in a responsible, locally-rooted operation.\n\nI would welcome the opportunity to connect briefly at your convenience — even a short call to understand the community's priorities would be invaluable.\n\nThank you for your public service.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": []
+    },
+    {
+      "to_role": "Zoning Officer",
+      "recipient_name": null,
+      "recipient_email": null,
+      "subject": "Cannabis Retail Zoning Inquiry — Upper Township",
+      "body": "Dear Zoning Officer,\n\nMy name is [Your Name] and I am researching a potential cannabis retail application in Upper Township.\n\nI understand that cannabis retail is permitted in (zones not yet confirmed). I have a few questions:\n\n  1. Could you confirm which specific zones or overlay districts allow Class 5 retail?\n  2. Is a zoning overlay map or GIS layer available that shows eligible parcels?\n  3. Are there any pending zone amendments that might affect eligibility?\n\nAny materials you can share would be very helpful as we evaluate sites.\n\nThank you for your time.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": []
+    },
+    {
+      "to_role": "Attorney",
+      "recipient_name": null,
+      "recipient_email": null,
+      "subject": "Cannabis Retail Representation Inquiry — Upper Township",
+      "body": "Dear Counsel,\n\nMy name is [Your Name] and I represent a group preparing a cannabis retail license application in Upper Township.\n\nI came across your firm's work before Upper Township's boards and wanted to reach out to gauge your interest and availability to represent an applicant in this process.\n\nWe are at an early stage and would value a brief introductory call to understand your approach and confirm capacity.\n\nPlease let me know if you are open to connecting.\n\nBest regards,\n[Your Name]\n[Organization]\n[Phone]",
+      "status": "Draft -- needs contact",
+      "context_used": []
+    }
+  ]
+}

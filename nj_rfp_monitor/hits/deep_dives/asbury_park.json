@@ -1,0 +1,63 @@
+{
+  "municipality": "Asbury Park",
+  "county": "",
+  "run_date": "2026-05-20T12:09:59.909267+00:00",
+  "ordinance": {
+    "found": true,
+    "is_prohibition": true,
+    "title": "Cannabis",
+    "ordinance_number": "2021-25",
+    "adopted_date": "2021-07-14",
+    "effective_date": "",
+    "license_classes": [
+      "Class 5 Retail"
+    ],
+    "allowed_zones": [],
+    "cap": "",
+    "application_fee": "",
+    "annual_fee": "",
+    "buffers": "",
+    "hours": "",
+    "local_tax": "",
+    "text_excerpt": "The purpose of this ordinance is to prohibit, within the geographical boundaries of the City of Asbury Park (the “City”), the location and/or operation of all classes of cannabis establishments or cannabis distributors or cannabis delivery services, as said terms are defined in section 3 of the New Jersey Cannabis Regulatory, Enforcement Assistance, and Marketplace Modernization Act 6wCs. 2021, c. 16) (the “Act”), but not the delivery of cannabis items and related supplies by a delivery service.",
+    "confidence": "high",
+    "url": "https://ecode360.com/AS4053/laws/LF1387668.pdf",
+    "runners_up": [
+      {
+        "url": "https://www.nj.gov/cannabis/businesses/priority-applications/impact-zones/",
+        "ordinance_number": "",
+        "confidence": "medium"
+      },
+      {
+        "url": "https://ecode360.com/34679998",
+        "ordinance_number": "2021-21",
+        "confidence": "low"
+      },
+      {
+        "url": "https://ecode360.com/34669306",
+        "ordinance_number": "2015-29",
+        "confidence": "low"
+      },
+      {
+        "url": "https://ecode360.com/BO1079/document/698556863.pdf",
+        "ordinance_number": "2022-17",
+        "confidence": "low"
+      },
+      {
+        "url": "https://ecode360.com/34678869",
+        "ordinance_number": "",
+        "confidence": "low"
+      },
+      {
+        "url": "https://www.shopcuzzies.com/blog/cannabis-lounges-new-jersey-2025/",
+        "ordinance_number": "",
+        "confidence": "low"
+      }
+    ]
+  },
+  "council_votes": [],
+  "zoning": {},
+  "rfp_signals": [],
+  "attorneys": [],
+  "draft_emails": []
+}
