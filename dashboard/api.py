@@ -8,16 +8,15 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-# Data lives in the FOIA repo where the pipeline actually runs
-_FOIA = Path(os.environ.get("NJ_PIPELINE_ROOT", r"D:\Deployboys\FOIA"))
-DB_PATH    = _FOIA / "nj_rfp_monitor" / "data" / "rfp_monitor.db"
-DIVES_DIR  = _FOIA / "nj_rfp_monitor" / "hits" / "deep_dives"
-SUMMARY_CSV= _FOIA / "nj_rfp_monitor" / "data" / "first_run_summary.csv"
+_DATA      = Path(__file__).parent / "data"
+DB_PATH    = _DATA / "rfp_monitor.db"
+DIVES_DIR  = _DATA / "deep_dives"
+SUMMARY_CSV= _DATA / "first_run_summary.csv"
 
 app = FastAPI(title="License Watch API")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:5175", "http://127.0.0.1:5175"],
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )

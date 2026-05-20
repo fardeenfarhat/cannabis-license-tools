@@ -20,14 +20,18 @@ dist/
 *.db-journal
 *.sqlite
 *.sqlite3
-!nj_rfp_monitor/data/rfp_monitor.db
+!dashboard/data/rfp_monitor.db
 
 # Scraper output / hits — large, regenerable, may contain raw PDFs
 cannabis_hits/nj/
 cannabis_hits/va/
-nj_cannabis/hits/
-nj_cannabis/output/
-nj_rfp_monitor/hits/pending_alerts/
+pipeline/nj_cannabis/hits/
+pipeline/nj_cannabis/output/
+pipeline/nj_rfp_monitor/hits/pending_alerts/
+
+# Frontend build output and deps
+dashboard/node_modules/
+dashboard/dist/
 
 # IDE
 .vscode/
