@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+# License Watch Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + FastAPI web app showing NJ cannabis RFP hits, town summaries, and deep-dive research cards. Deployed on Vercel.
 
-Currently, two official plugins are available:
+## Deploy to Vercel
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Import the repo into Vercel.
+2. Set **Root Directory** = `dashboard`.
+3. Framework preset: **Vite**. Build command: `npm run build`. Output directory: `dist`.
+4. Vercel auto-detects `api.py` and deploys it as a Python serverless function.
+5. No environment variables required.
 
-## React Compiler
+## Local development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+# Backend (port 7700)
+pip install fastapi uvicorn
+python api.py
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Frontend (port 5173)
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The frontend proxies `/api/*` to the backend in dev via Vite config.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+api.py              FastAPI backend — serves data from ./data/
+vercel.json         Vercel build + routing config
+requirements.txt    Python deps
+src/                React/TypeScript frontend
+  App.tsx           Main app — routing and layout
+  components/       UI components (cards, tables, filters)
+  api/              HTTP client functions
+  types/            TypeScript interfaces
+data/               Data files (committed, served read-only)
+  rfp_monitor.db    SQLite — rfp_hits table
+  first_run_summary.csv  Town-level cannabis status
+  rfp_hits.csv      RFP hits export
+  deep_dives/       Per-town research JSONs
+```
+
+## API endpoints
+
+| Endpoint | Description |
+|---|---|
+| `GET /api/hits` | All RFP hits ordered by first_seen |
+| `GET /api/summary` | Town summaries from first_run_summary.csv |
+| `GET /api/dives` | All deep-dive research cards (normalized) |
+| `GET /api/dives/{slug}` | Single town JSON (raw) |
+| `GET /health` | Health check — DB and dives dir status |
+
+## Refreshing data
+
+After running the pipeline scraper, copy updated files here and push to trigger a Vercel redeploy:
+
+```bash
+# From repo root (Windows)
+copy pipeline\nj_rfp_monitor\data\rfp_monitor.db dashboard\data\rfp_monitor.db
+copy pipeline\nj_rfp_monitor\data\first_run_summary.csv dashboard\data\first_run_summary.csv
+copy pipeline\nj_rfp_monitor\hits\rfp_hits.csv dashboard\data\rfp_hits.csv
+xcopy /E /Y pipeline\nj_rfp_monitor\hits\deep_dives dashboard\data\deep_dives\
+
+git add dashboard/data
+git commit -m "refresh dashboard data"
+git push
+```
+
+Vercel redeploys automatically on push. New data is live within ~1 minute.

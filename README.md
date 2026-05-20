@@ -1,85 +1,112 @@
 # cannabis-license-tools
 
-A set of four Claude Code skills and their underlying Python pipelines for
-researching and pursuing US cannabis retail licenses. NJ-focused with a
-parallel VA municipal-minutes scanner.
+NJ cannabis retail license intelligence platform. Two components:
 
-## The four skills
+- **`dashboard/`** — React + FastAPI web app, deployed on Vercel. Shows RFP hits, town summaries, and deep-dive research cards.
+- **`pipeline/`** — Python scraper + research pipeline. Runs locally or on a schedule.
 
-| Skill | What it does |
+## Repo layout
+
+```
+dashboard/              Vercel deployment (frontend + backend)
+  src/                  React/TypeScript frontend (Vite)
+  api.py                FastAPI backend (Vercel Python serverless)
+  vercel.json           Vercel build config
+  requirements.txt      Python deps (fastapi, uvicorn)
+  data/                 Data files served by the API
+    rfp_monitor.db      SQLite — RFP hits table
+    first_run_summary.csv  Town-level cannabis status summary
+    rfp_hits.csv        RFP hits export
+    deep_dives/         Per-town research JSONs (one file per town)
+
+pipeline/               Scraper + research pipeline
+  nj_rfp_monitor/       RFP monitor + deep-dive (rfp-monitor + deep-dive skills)
+    scripts/
+      rfp_monitor.py    Daily RFP sweep orchestrator
+      deep_dive/        Six sub-task modules (ordinance, council votes, zoning,
+                        rfp signals, attorneys, email drafter)
+    data/               nj_opted_in_municipalities.csv, nj_legal_notices.csv
+    hits/               RFP hits CSV + deep-dive workspace JSONs (gitignored)
+  nj_cannabis/          NJ portal CSV + helper scripts
+  scrapers/             NJ + VA municipal minutes scrapers
+
+.claude/skills/         Claude Code skill definitions
+  rfp-monitor/          Daily RFP sweep skill
+  deep-dive/            Single-town research skill
+  cannabis-search-nj/   NJ municipal minutes search skill
+  cannabis-search-va/   VA municipal minutes search skill
+```
+
+## Dashboard — Vercel deploy
+
+1. Push this repo to GitHub (already done).
+2. Import into Vercel. Set **Root Directory** = `dashboard`.
+3. Framework: **Vite**. Build command: `npm run build`. Output dir: `dist`.
+4. Vercel auto-detects `api.py` and deploys it as a Python serverless function.
+5. No environment variables needed — the API reads committed data files.
+
+**Local dev:**
+```bash
+cd dashboard
+pip install fastapi uvicorn
+python api.py           # API on http://127.0.0.1:7700
+
+npm install
+npm run dev             # Frontend on http://localhost:5173
+```
+
+**API endpoints:**
+
+| Endpoint | Returns |
 |---|---|
-| [`rfp-monitor`](.claude/skills/rfp-monitor/SKILL.md) | Daily sweep of ~344 NJ municipal RFP / legal-notice pages for newly posted Class-5 (cannabis retail) license RFPs. Firecrawl batch scraping + GPT-4o-mini classifier with keyword fallback. URL list loads live from a Notion database. |
-| [`deep-dive`](.claude/skills/deep-dive/SKILL.md) | Comprehensive single-town research run. Six sub-tasks: ordinance finder, council vote tagger, zoning overlay finder, RFP signal scanner, attorney shortlist with win/loss records, and 4 drafted outreach emails (Town Clerk, Council Member, Zoning Officer, Top Attorney). |
-| [`cannabis-search-nj`](.claude/skills/cannabis-search-nj/SKILL.md) | Search NJ municipal meeting minutes for cannabis keywords across AgendaCenter, CivicClerk, Legistar, and custom-PDF platforms. ~210 unique municipalities covered. |
-| [`cannabis-search-va`](.claude/skills/cannabis-search-va/SKILL.md) | Same idea for Virginia: AgendaCenter, Legistar, CivicWeb, civic-scraper, and CivicClerk. ~107 entries across all platforms. |
+| `GET /api/hits` | All RFP hits from rfp_monitor.db |
+| `GET /api/summary` | Town-level summaries from first_run_summary.csv |
+| `GET /api/dives` | All deep-dive research cards |
+| `GET /api/dives/{slug}` | Single town deep-dive JSON |
+| `GET /health` | Health check |
 
-## Project layout
-
-```
-.claude/skills/        Claude Code skill definitions (4 skills)
-scrapers/              NJ + VA municipal minutes scrapers (cannabis-search-{nj,va})
-  nj/                  NJ platform-specific scrapers + portal detection
-  va/                  VA platform-specific scrapers
-nj_cannabis/           NJ portal CSV + helper scripts for the search skills
-  data/                nj_portals.csv (city list), nj_municipalities.csv, etc.
-  scripts/             discover_portals.py, parse_municipalities.py, etc.
-nj_rfp_monitor/        RFP monitor + deep-dive pipeline (the rfp-monitor + deep-dive skills)
-  scripts/
-    rfp_monitor.py     Orchestrator (daily scan + --deep mode)
-    deep_dive/         Six sub-task modules: ordinance, council_votes, zoning,
-                       rfp_signals, attorneys, email_drafter
-cannabis_hits/crm/     Cached CRM contacts (council members, officials per town)
+**Refreshing data:** after a pipeline run, copy the updated files into `dashboard/data/` and push:
+```bash
+copy pipeline\nj_rfp_monitor\data\rfp_monitor.db dashboard\data\rfp_monitor.db
+copy pipeline\nj_rfp_monitor\data\first_run_summary.csv dashboard\data\first_run_summary.csv
+copy pipeline\nj_rfp_monitor\hits\rfp_hits.csv dashboard\data\rfp_hits.csv
+xcopy /E /Y pipeline\nj_rfp_monitor\hits\deep_dives dashboard\data\deep_dives\
+git add dashboard/data && git commit -m "refresh dashboard data" && git push
 ```
 
-## Setup
-
-1. Python 3.12+ (project tested on 3.12)
-2. `pip install requests openai firecrawl-py python-dotenv` (no requirements.txt yet, install ad-hoc)
-3. Copy `.env.example` → `nj_rfp_monitor/.env` and fill in:
-   - `FIRECRAWL_API_KEY` (required)
-   - `NOTION_TOKEN` (required for `rfp-monitor`)
-   - `OPENAI_API_KEY` (optional but strongly recommended — without it everything runs on regex/keyword fallbacks)
-
-## Quick commands
+## Pipeline — setup
 
 ```bash
-# Daily RFP sweep (full)
-python nj_rfp_monitor/scripts/rfp_monitor.py
-
-# Deep-dive a single town (6 sub-tasks, 3-8 min)
-python nj_rfp_monitor/scripts/rfp_monitor.py --deep "Asbury Park"
-
-# Search NJ municipal minutes (all platforms)
-python -m scrapers.nj --all
-
-# Search VA municipal minutes (all platforms)
-python -m scrapers.va --all
+cd pipeline
+pip install requests openai firecrawl-py python-dotenv notion-client
+cp nj_rfp_monitor/.env.example nj_rfp_monitor/.env
+# fill in FIRECRAWL_API_KEY, NOTION_TOKEN, OPENAI_API_KEY
 ```
 
-## Design principles
+**Quick commands:**
+```bash
+# Daily RFP sweep (all 344 towns)
+c:/python312/python.exe pipeline/nj_rfp_monitor/scripts/rfp_monitor.py
 
-- **Every LLM call has a keyword/regex fallback.** Pipelines run with no API key, just at lower quality.
-- **Firecrawl batch mode** for scraping — concurrent browsers, polling for completion.
-- **SQLite caching everywhere.** Second runs are cheap. Ordinance cache TTL 30d, attorney profiles 30d cross-town, per-town rankings 7d.
-- **No invented facts.** Every attorney appearance carries a `source_url`. Cannabis-experience claims verify the attorney's name appears verbatim in the source.
-- **Town solicitor always excluded** from attorney recommendations (conflict of interest).
-- **Workspace JSON is saved after every sub-task**, so a mid-run crash still produces a usable artifact.
+# Deep-dive a single town
+c:/python312/python.exe pipeline/nj_rfp_monitor/scripts/rfp_monitor.py --deep "Asbury Park"
 
-## Skill format
+# Quick test (1 URL, minimal API credits)
+c:/python312/python.exe pipeline/nj_rfp_monitor/scripts/rfp_monitor.py --limit 1
 
-Each skill is a single `SKILL.md` with YAML frontmatter (name, description,
-argument-hint). Claude Code auto-loads these when the working directory
-contains `.claude/skills/<name>/SKILL.md`. The descriptions are written so
-the model picks the right skill from natural-language prompts like "deep dive
-Asbury Park" or "scan the priority towns".
+# First-run summary CSV (all towns with any cannabis content)
+c:/python312/python.exe pipeline/nj_rfp_monitor/scripts/rfp_monitor.py --first-run
+```
 
-## Output locations
+## Claude Code skills
 
-Most outputs are gitignored (regenerable, large, or contain run state):
-- `nj_rfp_monitor/hits/` — RFP hits, CSV + workspace JSONs
-- `nj_cannabis/hits/` — raw PDFs from NJ minutes scrapers
-- `cannabis_hits/nj/`, `cannabis_hits/va/` — cannabis-keyword PDF hits
-- `*.db` — SQLite state files (snapshots, caches)
+Use these phrases in Claude Code to trigger each skill:
 
-Only the canonical CSVs (portal lists, opted-in towns, legal notices, the
-enriched CRM) are checked in.
+| Say… | Skill triggered |
+|---|---|
+| "run the monitor", "check RFPs", "scan towns" | `rfp-monitor` |
+| "deep dive [Town]", "research [Town]" | `deep-dive` |
+| "search NJ minutes", "cannabis search NJ" | `cannabis-search-nj` |
+| "search VA minutes", "cannabis search VA" | `cannabis-search-va` |
+
+Skills are defined in `.claude/skills/`. Claude Code loads them automatically when this directory is the working directory.
