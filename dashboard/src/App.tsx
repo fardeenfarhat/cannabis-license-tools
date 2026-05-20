@@ -76,6 +76,29 @@ export default function App() {
           return <DiveDetail dive={dive} back={() => setRoute({ name: 'dives' })} />;
         })()}
       </main>
+      <nav className="mobile-nav">
+        <button
+          className={`mn-item ${route.name === 'hits' ? 'active' : ''}`}
+          onClick={() => setRoute({ name: 'hits' })}
+        >
+          <span className="mn-label">RFP Hits</span>
+          <span className="mn-count">{hits.length}</span>
+        </button>
+        <button
+          className={`mn-item ${route.name === 'summary' ? 'active' : ''}`}
+          onClick={() => setRoute({ name: 'summary' })}
+        >
+          <span className="mn-label">Summary</span>
+          <span className="mn-count">{summary.length}</span>
+        </button>
+        <button
+          className={`mn-item ${route.name === 'dives' || route.name === 'dive' ? 'active' : ''}`}
+          onClick={() => setRoute({ name: 'dives' })}
+        >
+          <span className="mn-label">Deep Dives</span>
+          <span className="mn-count">{dives.length}</span>
+        </button>
+      </nav>
     </div>
   );
 }

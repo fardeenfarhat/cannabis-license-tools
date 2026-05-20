@@ -46,10 +46,10 @@ export function Sidebar({ route, setRoute, counts, lastSweep }: SidebarProps) {
 
       <div className="nav-section">
         <div className="nav-label">Reference</div>
-        <button className="nav-item">
+        <div className="nav-item nav-static">
           <span>Opt-in roster</span>
           <span className="nav-count">344</span>
-        </button>
+        </div>
       </div>
 
       <div className="sidebar-foot">
