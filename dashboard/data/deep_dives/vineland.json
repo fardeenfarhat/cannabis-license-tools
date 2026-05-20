@@ -236,7 +236,7 @@
     ],
     "cap_status": {
       "cap": "no cap",
-      "awarded": 2,
+      "awarded": 1,
       "slots_open": null,
       "saturated": false,
       "note": "Ordinance imposes no cap"
