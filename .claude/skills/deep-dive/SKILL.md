@@ -117,20 +117,173 @@ DEEP DIVE -- Asbury Park, NJ (Monmouth County)
 - **Cannabis experience** on an attorney is a bonus signal (+15 pts capped), not a filter. Town-wide track record matters more than cannabis-specific reps.
 - **Verbatim name check** runs before any cannabis-rep claim is accepted — the attorney's name must appear in the source page text, or the claim is dropped. This blocks LLM hallucination on legal credentials.
 - **Status values on email drafts**: `Draft` (ready for review) | `Draft -- needs contact` (no email on file, human must fill in) | `Draft -- error` (drafter crashed, fallback template returned).
-- **Phase 2 (Notion) is blocked** on Zain's setup — for now the workspace lives only as JSON. When Notion lands, the same workspace dict will sync to the town's Notion page.
+- **Notion sync** runs automatically after the deep dive completes — see "Pushing to Notion" section below.
+
+## Notion DB IDs
+
+Read all Notion database IDs from the config file before starting:
+
+```
+Read: .claude/notion_config.md
+```
+
+Use the IDs from that file for every Notion API call. Do not hardcode IDs here — the config file is the single source of truth.
 
 ## Your task
 
 1. Parse `$ARGUMENTS` — the first positional arg is the town name. If multi-word, ensure it is quoted.
 2. If user passed `--refresh-ordinance` or said "force refresh the ordinance", pass that flag through.
-3. Run the deep dive with `run_in_background: true`. Tell the user the run will take 3–8 minutes.
-4. When it completes:
+3. **Run connection check** (see section below) before starting.
+4. Run the deep dive with `run_in_background: true`. Tell the user the run will take 3–8 minutes.
+5. When it completes:
    - Read [nj_rfp_monitor/hits/deep_dives/<slug>.json](../../../nj_rfp_monitor/hits/deep_dives/) for the town.
    - Summarize each sub-task's findings in one or two lines: ordinance found, friendly council count, zoning confirmed, RFP signal count, top attorney picks, email draft statuses.
    - Highlight anything that needs human attention: missing contact emails, FETCH ERRORs, attorneys with no verifiable URL, ordinance not found.
-5. If any draft has status `Draft -- needs contact`, list which roles are missing emails so the user knows what to fill in.
-6. If `attorneys.needs_foia` is true, mention it — that signals the attorney search returned nothing and we should file a FOIA for board appearance records.
-7. Do not re-run sub-tasks individually unless the user asks. The cache means second `--deep` runs are cheap, so a full re-run is usually fine.
+6. If any draft has status `Draft -- needs contact`, list which roles are missing emails.
+7. If `attorneys.needs_foia` is true, mention it.
+8. Do not re-run sub-tasks individually unless the user asks.
+9. **Push findings to Notion** (see section below). Verify each write.
+
+## Connection check (run before every deep dive)
+
+Use `mcp__notion__API-retrieve-a-database` on all DBs in parallel.
+
+**Check 1 — RFP Hits DB:**
+- Call `mcp__notion__API-retrieve-a-database` with ID `34f61279-b083-8054-9aaf-ce23adfb2a94`.
+- If 404 → "RFP Hits DB not accessible — check integration permissions."
+- If OK → confirm title is "RFP Hits".
+
+**Check 2 — Sub-DB relations point to RFP Hits DB:**
+- Retrieve Draft Emails, Officials, Attorneys, FOIA Requests in parallel (hardcoded IDs in table above).
+- For each, check the `Town` property → `relation.database_id` should be `34f61279-b083-8054-9aaf-ce23adfb2a94`.
+- If any still show `34c61279-b083-8097-9d84-fed2a9c31570` (Monitoring DB) → flag: "⚠️ [DB name] Town relation not yet re-pointed — Zain needs to update it."
+
+**Report format:**
+```
+Notion connection check:
+  ✅ RFP Hits DB         — accessible
+  ✅ Draft Emails        — Town → RFP Hits DB ✓
+  ✅ Officials           — Town → RFP Hits DB ✓
+  ✅ Attorneys           — Town → RFP Hits DB ✓
+  ✅ FOIA Requests       — Town → RFP Hits DB ✓
+```
+Proceed even if sub-DB relations aren't re-pointed yet — just skip those write steps and warn the user.
+
+## Pushing to Notion after deep dive
+
+Run these steps in order. Verify each write before moving to the next.
+
+### Stage 1 — RFP Hits DB row (find or create)
+
+Search for an existing row: `mcp__notion__API-post-search` with query `"<municipality>"`, filter `{ "property": "object", "value": "page" }`.
+- If found in RFP Hits DB → patch with `mcp__notion__API-patch-page`.
+- If not found → create with `mcp__notion__API-post-page`.
+
+RFP Hits DB ID: `34f61279-b083-8054-9aaf-ce23adfb2a94`
+
+> **Schema notes (must match exactly):**
+> - Title field is `TOWN NAME` (not "Name")
+> - `Status` is type `status` — use `{ "status": { "name": "..." } }` not `select`
+> - `Ordinance URL` is `files` type — use the external file format below (not a plain URL field)
+
+Properties to set:
+```json
+{
+  "parent": { "database_id": "34f61279-b083-8054-9aaf-ce23adfb2a94" },
+  "properties": {
+    "TOWN NAME":        { "title": [{ "text": { "content": "<municipality>" } }] },
+    "Status":           { "status": { "name": "<'Monitoring' if prohibition, else 'RFP Anticipated'>" } },
+    "County":           { "rich_text": [{ "text": { "content": "<county>" } }] },
+    "Ordinance URL":    { "files": [{ "type": "external", "name": "Ordinance", "external": { "url": "<ordinance.url>" } }] },
+    "Ordinance Adopted":{ "date": { "start": "<ordinance.adopted_date as YYYY-MM-DD — only if cleanly parseable>" } }
+  }
+}
+```
+Only include `Ordinance URL` if `workspace.ordinance.found == true`.
+
+**Verify:** retrieve the page by ID and confirm Name + Status are correct. Report: "✅ Stage 1 — RFP Hits row created/updated for [Town]" or "❌ Stage 1 failed: [error]".
+
+### Stage 2 — Draft Email rows
+
+Skip if the Draft Emails Town relation still points to the Monitoring DB (from connection check).
+
+For each item in `workspace.draft_emails`, create a row in Draft Emails DB (`36061279-b083-80e0-af19-f5c5176da724`):
+```json
+{
+  "parent": { "database_id": "36061279-b083-80e0-af19-f5c5176da724" },
+  "properties": {
+    "Title":           { "title": [{ "text": { "content": "<subject>" } }] },
+    "Town":            { "relation": [{ "id": "<RFP Hits row page ID from Stage 1>" }] },
+    "Recipient Name":  { "rich_text": [{ "text": { "content": "<recipient_name>" } }] },
+    "Recipient Role":  { "select": { "name": "<to_role: Clerk|Council Member|Zoning Officer|Attorney>" } },
+    "Recipient Email": { "email": "<recipient_email — omit property if empty>" },
+    "Subject":         { "rich_text": [{ "text": { "content": "<subject>" } }] },
+    "Body":            { "rich_text": [{ "text": { "content": "<body, max 2000 chars>" } }] },
+    "Status":          { "select": { "name": "Draft" } },
+    "Drafted By":      { "select": { "name": "SHOW_ME_THE_RFP" } }
+  }
+}
+```
+
+**Verify:** after creating all 4 drafts, query Draft Emails DB for rows where Town = [RFP Hits row ID] and confirm count = 4. Report: "✅ Stage 2 — 4 draft emails created" or "❌ Stage 2 — only N/4 created: [errors]".
+
+### Stage 3 — Officials rows
+
+Skip if the Officials Town relation still points to the Monitoring DB.
+
+For each member in `workspace.council_votes.members`, create a row in Officials DB (`36061279-b083-80e4-9059-e280e79b57c6`):
+```json
+{
+  "parent": { "database_id": "36061279-b083-80e4-9059-e280e79b57c6" },
+  "properties": {
+    "Name":                      { "title": [{ "text": { "content": "<member.name>" } }] },
+    "Town":                      { "relation": [{ "id": "<RFP Hits row page ID>" }] },
+    "Role":                      { "select": { "name": "<member.current_title — map to: Mayor|Deputy Mayor|Council Member|Clerk|Zoning Officer>" } },
+    "Vote on Cannabis Ordinance":{ "select": { "name": "<member.vote — map to: Yes|No|Abstain|Absent|Not Voted>" } },
+    "Friendly":                  { "checkbox": "<true if member.friendly else false>" },
+    "Email":                     { "email": "<member.email — omit if empty>" },
+    "Notes":                     { "rich_text": [{ "text": { "content": "<member.source_url or ''>" } }] }
+  }
+}
+```
+
+**Verify:** query Officials DB for rows where Town = [RFP Hits row ID], confirm count matches `workspace.council_votes.members` length. Report: "✅ Stage 3 — N officials logged" or "❌ Stage 3 failed."
+
+### Stage 4 — Attorney rows
+
+Skip if the Attorneys Town relation still points to the Monitoring DB.
+
+For each attorney in `workspace.attorneys.attorneys` (top 5 only — tier A+B):
+```json
+{
+  "parent": { "database_id": "36061279-b083-800a-88d0-f8c61eb17494" },
+  "properties": {
+    "Name":               { "title": [{ "text": { "content": "<attorney.name>" } }] },
+    "Towns Active In":    { "relation": [{ "id": "<RFP Hits row page ID>" }] },
+    "Firm":               { "rich_text": [{ "text": { "content": "<attorney.firm>" } }] },
+    "Email":              { "email": "<attorney.email — omit if empty>" },
+    "Total Cases Tracked":{ "number": <attorney.appearances length> },
+    "Wins":               { "number": <attorney.this_town_wins> },
+    "Losses":             { "number": <attorney.this_town_losses> },
+    "Practice Areas":     { "multi_select": [{ "name": "Cannabis" }, { "name": "Land Use" }] },
+    "Source URLs":        { "rich_text": [{ "text": { "content": "<first appearance URL if available>" } }] }
+  }
+}
+```
+
+**Verify:** query Attorneys DB for rows linked to the RFP Hits row. Report: "✅ Stage 4 — N attorneys logged" or "❌ Stage 4 failed."
+
+### Final summary to user
+
+```
+Notion sync complete for [Town Name]:
+  ✅ Stage 1 — RFP Hits row: created/updated (Status: RFP Anticipated)
+  ✅ Stage 2 — 4 draft emails created in Draft Emails DB
+  ✅ Stage 3 — N officials logged (M friendly contacts)
+  ✅ Stage 4 — N attorneys logged (top pick: [name])
+```
+
+If any stage failed, tell the user exactly what failed and what they need to do (e.g. "Zain needs to re-point the Officials Town relation to the RFP Hits DB").
 
 ## When NOT to use this skill
 

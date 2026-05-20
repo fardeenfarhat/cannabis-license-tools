@@ -51,6 +51,7 @@ from deep_dive.zoning         import find_zoning
 from deep_dive.rfp_signals    import check_rfp_signals
 from deep_dive.attorneys      import find_attorneys
 from deep_dive.email_drafter  import draft_emails
+from deep_dive.firecrawl_utils import reset_run_state, credits_used, BudgetExceededError
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -979,6 +980,8 @@ def run_deep_dive(town: str, con: sqlite3.Connection, refresh_ordinance: bool = 
     county = county_map.get(town.lower(), "")
     location = f"{town}, NJ" + (f" ({county} County)" if county else "")
 
+    reset_run_state()   # clear per-process URL cache + credit counter
+
     print(f"\n{'='*60}")
     print(f"DEEP DIVE -- {location}")
     print(f"Started: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
@@ -1193,6 +1196,7 @@ def run_deep_dive(town: str, con: sqlite3.Connection, refresh_ordinance: bool = 
     print(f"\n{'='*60}")
     print(f"Deep dive complete for {town}.")
     print(f"Report saved : {path}")
+    print(f"Firecrawl credits used (est.): ~{credits_used()}")
     print(f"{'='*60}\n")
 
 
@@ -1222,7 +1226,11 @@ def main():
             print("ERROR: Set FIRECRAWL_API_KEY in nj_rfp_monitor/.env first.")
             return
         con = init_db(DB_FILE)
-        run_deep_dive(args.deep, con, refresh_ordinance=args.refresh_ordinance)
+        try:
+            run_deep_dive(args.deep, con, refresh_ordinance=args.refresh_ordinance)
+        except BudgetExceededError as e:
+            print(f"\n[BUDGET] {e}")
+            print(f"[BUDGET] Partial workspace saved. Re-run with FIRECRAWL_BUDGET=1200 to raise limit.")
         con.close()
         return
 

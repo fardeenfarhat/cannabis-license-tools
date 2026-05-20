@@ -251,8 +251,9 @@ def _draft_clerk(town: str, crm_rows: list[dict], workspace: dict) -> dict:
     row   = _find_clerk(crm_rows)
     name, email = _crm_to_contact(row)
 
-    # Context signals
-    rfp_signals = workspace.get("rfp_signals") or []
+    # Context signals — rfp_signals may be a list (old schema) or dict (new schema)
+    rfp_raw = workspace.get("rfp_signals") or {}
+    rfp_signals = rfp_raw.get("signals", rfp_raw) if isinstance(rfp_raw, dict) else rfp_raw
     signal_snippets = [s.get("snippet", "") for s in rfp_signals[:2] if s.get("snippet")]
     ordinance = workspace.get("ordinance") or {}
     ord_no    = ordinance.get("ordinance_number", "")
@@ -301,10 +302,31 @@ Keep it under 180 words. End with: Best regards, [Your Name] / [Organization] / 
 
 
 def _draft_council(town: str, crm_rows: list[dict], workspace: dict) -> dict:
-    council_votes = workspace.get("council_votes") or []
+    # council_votes may be a list (old schema) or dict with "members" key (new schema)
+    cv_raw = workspace.get("council_votes") or {}
+    council_votes = cv_raw.get("members", cv_raw) if isinstance(cv_raw, dict) else cv_raw
     row   = _find_friendliest_council(crm_rows, council_votes)
     name, email = _crm_to_contact(row)
     role_title = (row.get("role") or "Council Member") if row else "Council Member"
+
+    # Fallback: CRM had nothing — use workspace council members directly.
+    # They come from the council_votes sub-task and often have email + phone.
+    if not name and isinstance(council_votes, list):
+        candidates = [
+            m for m in council_votes
+            if isinstance(m, dict) and (m.get("email") or m.get("phone"))
+        ]
+        if candidates:
+            # Prefer: friendly > still_in_office > has_email
+            candidates.sort(key=lambda m: (
+                bool(m.get("friendly")),
+                bool(m.get("still_in_office")),
+                bool(m.get("email")),
+            ), reverse=True)
+            best = candidates[0]
+            name       = (best.get("name") or "").strip()
+            email      = (best.get("email") or "").strip() or None
+            role_title = (best.get("current_title") or "Council Member").strip()
 
     ordinance = workspace.get("ordinance") or {}
     ord_no    = ordinance.get("ordinance_number", "")
@@ -312,7 +334,7 @@ def _draft_council(town: str, crm_rows: list[dict], workspace: dict) -> dict:
 
     # Find this member's vote record in workspace
     vote_note = ""
-    for cv in council_votes:
+    for cv in (council_votes if isinstance(council_votes, list) else []):
         cv_name = (cv.get("name") or "").strip().lower()
         if name and cv_name and cv_name.split()[-1] in name.lower():
             vote = cv.get("vote", "")

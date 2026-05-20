@@ -281,7 +281,15 @@ def _llm_discover_zones(text: str, town: str) -> list[str]:
         import openai
         client = openai.OpenAI(api_key=api_key)
         prompt = f"""You are analyzing a zoning code or cannabis ordinance for {town}, NJ.
-Find which zoning districts or zones explicitly permit cannabis retail (Class 5 / adult-use dispensary).
+
+Task: find which zoning districts permit cannabis retail (Class 5 / adult-use dispensary).
+
+Two scenarios to handle:
+1. EXPLICIT — the text directly says cannabis is permitted in zone X → return that zone, confidence "high"
+2. INFERRED — the cannabis ordinance says cannabis is permitted in the city but doesn't name zones,
+   AND the text contains a general zoning chapter listing commercial/business/mixed-use zones →
+   return those zone codes as candidates, confidence "medium". Only infer from clearly commercial
+   zone types (B, C, CM, MX, HC, NC, CBC, etc.); exclude residential (R), agricultural (A), open space.
 
 Text:
 {text[:MAX_TEXT]}
@@ -291,7 +299,7 @@ Respond with JSON only:
   "zones_found": ["list of zone short codes or names, e.g. CM2, B-2, C-1, MX"],
   "confidence": "high, medium, or low"
 }}
-If no zone names are found, return {{"zones_found": [], "confidence": "low"}}"""
+If no zone names are found at all, return {{"zones_found": [], "confidence": "low"}}"""
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
@@ -401,6 +409,10 @@ def _discovery_queries(town: str) -> list[str]:
         f'"{town} NJ" cannabis zoning site:ecode360.com',
         f'"{town} NJ" "cannabis overlay" OR "cannabis retail zone" ordinance',
         f'"{town} NJ" cannabis "permitted use" zoning district',
+        # Fix 4: general zoning chapter — find which zones exist even when the
+        # cannabis ordinance doesn't name them explicitly.
+        f'"{town} NJ" zoning "permitted uses" commercial OR retail OR business site:ecode360.com',
+        f'"{town} NJ" zoning code chapter commercial industrial "permitted use" retail',
     ]
 
 
@@ -413,30 +425,24 @@ def _run_discovery(town: str) -> tuple[list[str], str]:
     for q in queries:
         print(f"      [zoning:discovery] {q}")
         try:
-            results = firecrawl_search(q, limit=5)
+            results = firecrawl_search(q, limit=3)
         except Exception as e:
             print(f"      [zoning:discovery] search error: {e}")
             continue
 
-        to_scrape, inline_text = [], {}
-        for r in results:
-            url = r.get("url", "")
-            if not url or _skip_url(url) or _is_map_url(url):
-                continue
-            md = r.get("markdown", "")
-            if md and len(md) > 200:
-                inline_text[url] = md
-            else:
-                to_scrape.append(url)
+        to_scrape = [
+            r["url"] for r in results
+            if r.get("url") and not _skip_url(r["url"]) and not _is_map_url(r["url"])
+        ]
 
+        scraped: dict[str, str] = {}
         if to_scrape[:3]:
             try:
                 scraped = firecrawl_scrape_urls(to_scrape[:3])
-                inline_text.update(scraped)
             except Exception as e:
                 print(f"      [zoning:discovery] scrape error: {e}")
 
-        for url, text in inline_text.items():
+        for url, text in scraped.items():
             if not text or len(text) < 200:
                 continue
             zones = _llm_discover_zones(text, town)
@@ -500,35 +506,30 @@ def _run_text_strategy(
     for q in queries:
         print(f"      [zoning:{label}] {q}")
         try:
-            results = firecrawl_search(q, limit=5)
+            results = firecrawl_search(q, limit=3)
         except Exception as e:
             print(f"      [zoning:{label}] search error: {e}")
             continue
 
-        to_scrape, inline_text = [], {}
-        for r in results:
-            url = r.get("url", "")
-            if not url or url in tried_urls or _skip_url(url) or _is_map_url(url):
-                continue
+        to_scrape = [
+            r["url"] for r in results
+            if r.get("url") and r["url"] not in tried_urls
+            and not _skip_url(r["url"]) and not _is_map_url(r["url"])
+        ]
+        for url in to_scrape:
             tried_urls.add(url)
-            md = r.get("markdown", "")
-            if md and len(md) > 200:
-                inline_text[url] = md
-            else:
-                to_scrape.append(url)
 
+        scraped: dict[str, str] = {}
         if to_scrape[:3]:
             try:
                 scraped = firecrawl_scrape_urls(to_scrape[:3])
-                inline_text.update(scraped)
             except Exception as e:
                 print(f"      [zoning:{label}] scrape error: {e}")
 
-        for url, text in inline_text.items():
+        for url, text in scraped.items():
             if not text or len(text) < 200:
                 continue
-            score = _zoning_url_score(url)
-            scored_pages.append((score, url, text))
+            scored_pages.append((_zoning_url_score(url), url, text))
 
         if scored_pages:
             break   # stop after first query that yields anything
@@ -550,7 +551,7 @@ def _run_url_strategy(
     for q in queries:
         print(f"      [zoning:{label}] {q}")
         try:
-            results = firecrawl_search(q, limit=5)
+            results = firecrawl_search(q, limit=3)
         except Exception as e:
             print(f"      [zoning:{label}] search error: {e}")
             continue

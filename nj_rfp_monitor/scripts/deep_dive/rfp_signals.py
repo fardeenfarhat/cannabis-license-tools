@@ -199,6 +199,11 @@ Respond with JSON only:
 # Keyword fallback
 # ---------------------------------------------------------------------------
 
+_CANNABIS_GATE_RE  = re.compile(
+    r"\bcannabis\b|\bmarijuana\b|\bdispensary\b|\bClass\s*5\b|\bCRC\b|\bNJRC\b|\brecreational\b",
+    re.I,
+)
+
 _LIVE_RFP_RE       = re.compile(r"\b(?:request for proposals?|RFP|RFQ|RFB)\b.{0,300}cannabis", re.I | re.DOTALL)
 _LIVE_RFP_RE2      = re.compile(r"cannabis.{0,300}\b(?:request for proposals?|RFP|RFQ)\b", re.I | re.DOTALL)
 _AWARDS_RE         = re.compile(r"\b(?:awarded|granted|issued|approved)\b.{0,200}(?:license|permit)", re.I | re.DOTALL)
@@ -330,6 +335,8 @@ def _scrape_and_categorize(
     for url, text in scraped.items():
         if not text or len(text) < 200:
             continue
+        if not _CANNABIS_GATE_RE.search(text):
+            continue  # skip pages with no cannabis-related content
         sig = _llm_categorize_signal(text, town, source_strategy) \
               or _keyword_categorize_signal(text)
         if sig and sig.get("type") != "NONE":
@@ -359,33 +366,31 @@ def _search_and_categorize(
         print(f"      [signals:{source_strategy}] {q}")
         queries_run.append(q)
         try:
-            results = firecrawl_search(q, limit=5)
+            results = firecrawl_search(q, limit=3)
         except Exception as e:
             print(f"      [signals:{source_strategy}] search error: {e}")
             continue
 
-        to_scrape, inline_text = [], {}
-        for r in results:
-            url = r.get("url", "")
-            if not url or url in tried_urls or _skip(url, allow_news=allow_news):
-                continue
+        to_scrape = [
+            r["url"] for r in results
+            if r.get("url") and r["url"] not in tried_urls
+            and not _skip(r["url"], allow_news=allow_news)
+        ]
+        for url in to_scrape:
             tried_urls.add(url)
-            md = r.get("markdown", "")
-            if md and len(md) > 200:
-                inline_text[url] = md
-            else:
-                to_scrape.append(url)
 
+        scraped: dict[str, str] = {}
         if to_scrape[:max_per_query]:
             try:
                 scraped = firecrawl_scrape_urls(to_scrape[:max_per_query])
-                inline_text.update(scraped)
             except Exception as e:
                 print(f"      [signals:{source_strategy}] scrape error: {e}")
 
-        for url, text in inline_text.items():
+        for url, text in scraped.items():
             if not text or len(text) < 200:
                 continue
+            if not _CANNABIS_GATE_RE.search(text):
+                continue  # skip pages with no cannabis-related content
             sig = _llm_categorize_signal(text, town, source_strategy) \
                   or _keyword_categorize_signal(text)
             if sig and sig.get("type") != "NONE":
@@ -419,30 +424,26 @@ def _strategy1_crc(town: str) -> tuple[list[dict], list[dict], list[str]]:
         print(f"      [signals:S1] {q}")
         queries_run.append(q)
         try:
-            results = firecrawl_search(q, limit=5)
+            results = firecrawl_search(q, limit=3)
         except Exception as e:
             print(f"      [signals:S1] search error: {e}")
             continue
 
-        to_scrape, inline = [], {}
-        for r in results:
-            url = r.get("url", "")
-            if not url or url in tried or _skip(url):
-                continue
+        to_scrape = [
+            r["url"] for r in results
+            if r.get("url") and r["url"] not in tried and not _skip(r["url"])
+        ]
+        for url in to_scrape:
             tried.add(url)
-            md = r.get("markdown", "")
-            if md and len(md) > 200:
-                inline[url] = md
-            else:
-                to_scrape.append(url)
 
+        scraped: dict[str, str] = {}
         if to_scrape[:3]:
             try:
-                inline.update(firecrawl_scrape_urls(to_scrape[:3]))
+                scraped = firecrawl_scrape_urls(to_scrape[:3])
             except Exception as e:
                 print(f"      [signals:S1] scrape error: {e}")
 
-        for url, text in inline.items():
+        for url, text in scraped.items():
             if not text or len(text) < 200:
                 continue
             licenses = _llm_extract_awards(text, town)
@@ -469,14 +470,29 @@ def _strategy1_crc(town: str) -> tuple[list[dict], list[dict], list[str]]:
         if awarded:
             break   # short-circuit once CRC returned anything
 
-    # Dedupe awarded by (licensee, address)
-    seen = set()
+    # Dedupe awarded licenses — normalize company names before comparing so
+    # "COLUMBIA CARE NEW JERSEY LLC" and "Columbia Care NJ/The Cannabist" collapse to one.
+    def _norm_licensee(name: str) -> str:
+        n = re.sub(r"[^a-z0-9 ]", " ", name.lower())
+        n = re.sub(r"\b(llc|inc|corp|ltd|lp|llp|nj|new jersey|the|a|an)\b", " ", n)
+        return re.sub(r"\s+", " ", n).strip()
+
+    seen_licensees: set[str] = set()
     unique_awarded = []
     for lic in awarded:
-        key = (lic.get("licensee", "").lower(), lic.get("address", "").lower())
-        if key in seen or not lic.get("licensee"):
+        raw = lic.get("licensee", "")
+        if not raw:
             continue
-        seen.add(key)
+        norm = _norm_licensee(raw)
+        # Check if any already-seen licensee shares ≥2 tokens with this one
+        norm_tokens = set(norm.split())
+        duplicate = any(
+            len(norm_tokens & set(seen.split())) >= 2
+            for seen in seen_licensees
+        )
+        if duplicate:
+            continue
+        seen_licensees.add(norm)
         unique_awarded.append(lic)
 
     return signals, unique_awarded, queries_run
@@ -487,17 +503,10 @@ def _strategy2_town_rfps(town: str) -> tuple[list[dict], list[str]]:
     queries_run: list[str] = []
 
     # First: re-scrape any seed URLs for this town
-    seed_urls = _load_seed_urls(town)
+    # Seed URLs: skip re-scrape here — the daily monitor already covers these
     signals: list[dict] = []
-    if seed_urls:
-        print(f"      [signals:S2] re-scraping {len(seed_urls)} seed URLs")
-        signals += _scrape_and_categorize(seed_urls[:5], town, "S2")
-        queries_run.append(f"<seed urls from rfp_seed_urls.csv: {len(seed_urls)}>")
-
-    # Then targeted searches
     queries = [
         f'"{town} NJ" cannabis RFP OR "request for proposal"',
-        f'"{town} NJ" cannabis "request for qualifications" OR RFQ',
         f'"{town} NJ" cannabis dispensary application',
     ]
     extra, qrun = _search_and_categorize(queries, town, "S2")
@@ -512,30 +521,18 @@ def _strategy3_council_agendas(town: str) -> tuple[list[dict], list[str]]:
     queries = [
         f'"{town} NJ" council agenda cannabis {year}',
         f'"{town} NJ" "council meeting" cannabis ordinance',
-        f'"{town} NJ" planning board cannabis',
     ]
     return _search_and_categorize(queries, town, "S3")
 
 
-def _strategy4_bid_portals(town: str) -> tuple[list[dict], list[str]]:
-    """NJ bid aggregator portals."""
-    queries = [
-        f'"{town}" cannabis site:bidnetdirect.com',
-        f'"{town}" cannabis site:gov.deals',
-        f'"{town}" cannabis NJ "bid opportunity" OR "RFP"',
-    ]
-    return _search_and_categorize(queries, town, "S4")
-
-
-def _strategy5_news(town: str) -> tuple[list[dict], list[str]]:
+def _strategy4_news(town: str) -> tuple[list[dict], list[str]]:
     """News coverage — only strategy that allows news domains."""
     year = datetime.now().year
     queries = [
         f'"{town}" cannabis dispensary {year} NJ',
-        f'"{town}" NJ cannabis lawsuit OR litigation',
         f'"{town}" NJ cannabis license awarded OR approved',
     ]
-    return _search_and_categorize(queries, town, "S5", allow_news=True)
+    return _search_and_categorize(queries, town, "S4", allow_news=True)
 
 
 # ---------------------------------------------------------------------------
@@ -670,15 +667,9 @@ def check_rfp_signals(
     all_signals += sigs
     all_queries += qs
 
-    # ---- S4: Bid portals ----
-    print(f"\n    [signals] S4 — NJ bid aggregator portals")
-    sigs, qs = _strategy4_bid_portals(town)
-    all_signals += sigs
-    all_queries += qs
-
-    # ---- S5: News (whitelist) ----
-    print(f"\n    [signals] S5 — News coverage")
-    sigs, qs = _strategy5_news(town)
+    # ---- S4: News (whitelist) ----
+    print(f"\n    [signals] S4 — News coverage")
+    sigs, qs = _strategy4_news(town)
     all_signals += sigs
     all_queries += qs
 

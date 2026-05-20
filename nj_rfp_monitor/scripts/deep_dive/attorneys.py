@@ -368,8 +368,40 @@ Return empty strings if not found. Do not guess or invent names."""}],
         return {}
 
 
+_BUSINESS_ENTITY_RE = re.compile(
+    r"\b(llc|inc\.?|corp\.?|ltd\.?|l\.p\.|llp|associates|development|"
+    r"corporation|company|co\.|group|holdings|enterprises|properties|realty|"
+    r"management|solutions|services|industries|technologies|ventures)\b",
+    re.I,
+)
+
+
+def _looks_like_attorney(name: str, applicant: str) -> bool:
+    """Return True only if name plausibly belongs to a licensed attorney (a person)."""
+    if not name or len(name.strip()) < 4:
+        return False
+    # Company name indicators → not an attorney
+    if _BUSINESS_ENTITY_RE.search(name):
+        return False
+    # Name identical to applicant → LLM filled attorney slot with applicant
+    if applicant and name.strip().lower() == applicant.strip().lower():
+        return False
+    # Must look like a human name: at least two words, each starting uppercase
+    parts = name.strip().split()
+    if len(parts) < 2:
+        return False
+    if not all(p[0].isupper() for p in parts if p):
+        return False
+    return True
+
+
 def _llm_extract_legal_notice_attorneys(text: str, town: str, source_url: str) -> list[dict]:
-    """Extract attorney-applicant pairs from a legal notices page."""
+    """Extract attorney-applicant pairs from a legal notices page.
+
+    Legal notices list the APPLICANT (company/person seeking variance) and sometimes
+    their ATTORNEY (the licensed lawyer representing them). We want the attorney, not
+    the applicant. The LLM prompt and post-filter enforce this distinction.
+    """
     api_key = os.environ.get("OPENAI_API_KEY", "")
     if not api_key:
         return []
@@ -382,18 +414,24 @@ def _llm_extract_legal_notice_attorneys(text: str, town: str, source_url: str) -
                 f"""Read these {town}, NJ legal notices and extract attorney-applicant pairs.
 Look for variance applications, site plan appeals, ZBA hearings, board of adjustment notices.
 
+IMPORTANT DISTINCTION:
+- "applicant" = the business or person APPLYING for the variance/approval (e.g., "Smith LLC", "John Doe")
+- "name" = the LICENSED ATTORNEY representing the applicant before the board — a human lawyer
+  Do NOT put the applicant's name in the "name" field. If no attorney name appears, omit the entry.
+
 {text[:MAX_TEXT]}
 
-JSON only — list ([] if none found):
+JSON only — list ([] if no attorney names found):
 [
   {{
-    "name": "attorney full name",
-    "firm": "firm name or empty",
-    "applicant": "applicant/client name",
+    "name": "licensed attorney's full personal name (First Last) — NOT the applicant company",
+    "firm": "law firm name or empty",
+    "applicant": "the applicant/client company or person name",
     "matter": "type of application e.g. use variance, bulk variance, site plan"
   }}
 ]
-Exclude town solicitor, board attorney, and municipal officials."""}],
+Exclude town solicitor, board attorney, and municipal officials.
+If you cannot identify a human attorney name (only the applicant), return []."""}],
             response_format={"type": "json_object"},
             temperature=0,
             max_tokens=800,
@@ -403,11 +441,18 @@ Exclude town solicitor, board attorney, and municipal officials."""}],
             (v for v in raw.values() if isinstance(v, list)), []
         )
         for item in items:
-            item["source_url"]    = source_url
-            item["board"]         = "legal_notice"
-            item["outcome"]       = "unknown"
+            item["source_url"]     = source_url
+            item["board"]          = "legal_notice"
+            item["outcome"]        = "unknown"
             item["date_mentioned"] = ""
-        return [i for i in items if i.get("name") and len(i["name"].strip()) > 3]
+        # Post-filter: keep only entries whose "name" looks like a human attorney
+        valid = [
+            i for i in items
+            if _looks_like_attorney(i.get("name", ""), i.get("applicant", ""))
+        ]
+        if len(items) > 0 and len(valid) == 0:
+            print(f"      [attorneys:S5] {len(items)} entries dropped (all look like applicants, not attorneys)")
+        return valid
     except Exception as e:
         print(f"      [attorneys] LLM legal notice error: {e}")
         return []
@@ -467,22 +512,25 @@ def s1_town_solicitor(town: str) -> dict:
     for query in queries:
         print(f"      [attorneys:S1] {query}")
         try:
-            results = firecrawl_search(query, limit=4)
+            results = firecrawl_search(query, limit=3)
         except Exception as e:
             print(f"      [attorneys:S1] search error: {e}")
             continue
-        for r in results:
-            url = r.get("url", "")
-            if not url or url in tried or _skip(url):
-                continue
+        to_scrape = [
+            r["url"] for r in results
+            if r.get("url") and r["url"] not in tried and not _skip(r["url"])
+        ]
+        for url in to_scrape:
             tried.add(url)
-            text = r.get("markdown", "") or ""
-            if not text or len(text) < 100:
-                try:
-                    scraped = firecrawl_scrape_urls([url])
-                    text = scraped.get(url, "")
-                except Exception:
-                    continue
+
+        scraped_s1: dict[str, str] = {}
+        if to_scrape[:3]:
+            try:
+                scraped_s1 = firecrawl_scrape_urls(to_scrape[:3])
+            except Exception:
+                pass
+
+        for url, text in scraped_s1.items():
             if not text:
                 continue
             info = _llm_extract_solicitor(text, town)
@@ -511,17 +559,14 @@ _BOARD_QUERY_TEMPLATES: dict[str, list[str]] = {
     "planning": [
         '"{town} NJ" "planning board" meeting minutes {years}',
         '"{town} NJ" planning board minutes attorney appeared represented',
-        '"{town} NJ" "planning board" minutes application variance site:.gov OR site:.nj.us',
     ],
     "zba": [
         '"{town} NJ" "zoning board of adjustment" OR "ZBA" meeting minutes {years}',
         '"{town} NJ" "board of adjustment" minutes attorney variance appeal',
-        '"{town} NJ" zoning board minutes application attorney represented',
     ],
     "council": [
         '"{town} NJ" governing body council minutes attorney {years}',
         '"{town} NJ" council meeting minutes "appeared" OR "represented" attorney',
-        '"{town} NJ" township committee minutes attorney counsel {years}',
     ],
 }
 
@@ -541,33 +586,26 @@ def strategy_meeting_minutes(town: str, body: str) -> list[dict]:
         query = tmpl.format(town=town, years=years_str)
         print(f"      [attorneys:{body}] {query}")
         try:
-            results = firecrawl_search(query, limit=5)
+            results = firecrawl_search(query, limit=3)
         except Exception as e:
             print(f"      [attorneys:{body}] search error: {e}")
             continue
 
-        to_scrape: list[str] = []
-        inline: dict[str, str] = {}
-
-        for r in results:
-            url = r.get("url", "")
-            if not url or url in tried or _skip(url):
-                continue
+        to_scrape = [
+            r["url"] for r in results
+            if r.get("url") and r["url"] not in tried and not _skip(r["url"])
+        ]
+        for url in to_scrape:
             tried.add(url)
-            md = r.get("markdown", "")
-            if md and len(md) > 300:
-                inline[url] = md
-            else:
-                to_scrape.append(url)
 
-        if to_scrape:
+        scraped: dict[str, str] = {}
+        if to_scrape[:3]:
             try:
-                scraped = firecrawl_scrape_urls(to_scrape[:4])
-                inline.update(scraped)
+                scraped = firecrawl_scrape_urls(to_scrape[:3])
             except Exception as e:
                 print(f"      [attorneys:{body}] scrape error: {e}")
 
-        for url, text in inline.items():
+        for url, text in scraped.items():
             if not text or len(text) < 200:
                 continue
             # Quick gate: only process pages that mention attorneys
@@ -634,21 +672,20 @@ def s6_cannabis_bonus(name: str, firm: str) -> dict:
     for query in queries:
         print(f"      [attorneys:S6] {query}")
         try:
-            results = firecrawl_search(query, limit=4)
+            results = firecrawl_search(query, limit=3)
         except Exception as e:
             print(f"      [attorneys:S6] search error: {e}")
             continue
-        for r in results:
-            url = r.get("url", "")
-            if not url or _skip(url):
+        urls = [r["url"] for r in results if r.get("url") and not _skip(r["url"])]
+        if not urls:
+            continue
+        try:
+            scraped = firecrawl_scrape_urls(urls[:2])
+        except Exception:
+            continue
+        for url, text in scraped.items():
+            if not text:
                 continue
-            text = r.get("markdown", "") or ""
-            if not text or len(text) < 100:
-                try:
-                    scraped = firecrawl_scrape_urls([url])
-                    text = scraped.get(url, "")
-                except Exception:
-                    continue
             result = _llm_cannabis_check(text, name)
             if result.get("verified"):
                 reps = result.get("reps", 1)
