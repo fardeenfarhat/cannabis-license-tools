@@ -149,21 +149,6 @@
         "extracted_at": "2026-05-20T09:42:12.897907+00:00"
       },
       {
-        "type": "RECENT_AWARDS",
-        "url": "https://www.nj.gov/cannabis/businesses/permitted/",
-        "title": "NJ CRC license listing — Vineland",
-        "snippet": "1 cannabis license(s) found via CRC",
-        "application_deadline": "",
-        "questions_deadline": "",
-        "window_opens": "",
-        "window_closes": "",
-        "moratorium_expires": "",
-        "amendment_vote_date": "",
-        "confidence": "high",
-        "source_strategy": "S1",
-        "extracted_at": "2026-05-20T09:42:16.333140+00:00"
-      },
-      {
         "type": "ORDINANCE_AMENDMENT",
         "title": "Cannabis Establishments Regulations in Vineland",
         "snippet": "The regulations of this article are subject to the enabling authority of the State of New Jersey and are subject to compliance with all statutes and/or regulations adopted by the State of New Jersey or its instrumentalities. Amendments noted where applicable. The regulations include requirements for cannabis establishments, including licensing and operational standards.",
@@ -177,21 +162,6 @@
         "source_strategy": "S2",
         "url": "https://ecode360.com/37930817",
         "extracted_at": "2026-05-20T09:42:40.305778+00:00"
-      },
-      {
-        "type": "ORDINANCE_AMENDMENT",
-        "title": "",
-        "snippet": "[Skip to content](https://www.vinelandcity.org/legal-notices/#content)\n\nHit enter to search or ESC to closeSearch\n\n[Close Search](https://www.vinelandcity.org/legal-notices/#)\n\n# Legal Notices\n\n## Legal Notices\n\n#### Legal notices are used to facilitate transparency and accountability by informing the public of opportunities to share views and participate in local government decision-making. Notic",
-        "application_deadline": "",
-        "questions_deadline": "",
-        "window_opens": "",
-        "window_closes": "",
-        "moratorium_expires": "",
-        "amendment_vote_date": "",
-        "confidence": "low",
-        "url": "https://www.vinelandcity.org/legal-notices/",
-        "source_strategy": "S2",
-        "extracted_at": "2026-05-20T09:42:43.544978+00:00"
       },
       {
         "type": "ORDINANCE_AMENDMENT",
