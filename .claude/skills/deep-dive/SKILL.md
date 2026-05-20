@@ -154,7 +154,7 @@ Use `mcp__notion__API-retrieve-a-database` on all DBs in parallel.
 - If OK → confirm title is "RFP Hits".
 
 **Check 2 — Sub-DB relations point to RFP Hits DB:**
-- Retrieve Draft Emails, Officials, Attorneys, FOIA Requests in parallel (hardcoded IDs in table above).
+- Retrieve Draft Emails, Officials, Attorneys, FOIA Requests in parallel (IDs from notion_config.md).
 - For each, check the `Town` property → `relation.database_id` should be `34f61279-b083-8054-9aaf-ce23adfb2a94`.
 - If any still show `34c61279-b083-8097-9d84-fed2a9c31570` (Monitoring DB) → flag: "⚠️ [DB name] Town relation not yet re-pointed — Zain needs to update it."
 

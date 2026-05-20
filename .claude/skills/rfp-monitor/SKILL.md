@@ -46,7 +46,7 @@ Full sweep timing (batch mode with concurrent browsers):
 - 5 browsers (paid plan): ~18 min for all 344 towns
 
 Env vars auto-load from [nj_rfp_monitor/.env](../../../nj_rfp_monitor/.env).
-Required: `FIRECRAWL_API_KEY`, `NOTION_TOKEN`. Optional: `OPENAI_API_KEY`, `NOTION_RFP_HITS_DB_ID`.
+Required: `FIRECRAWL_API_KEY`, `NOTION_TOKEN`. Optional: `OPENAI_API_KEY`.
 
 ## How batch scraping works
 
@@ -127,7 +127,7 @@ Use `mcp__notion__API-retrieve-a-database` to verify each DB is accessible and c
 - If OK → confirm title is "RFP Hits" and note it's accessible.
 
 **Check 2 — Sub-DBs have Town relation pointing to RFP Hits DB (not Monitoring DB):**
-- Call `mcp__notion__API-retrieve-a-database` for each sub-DB using its hardcoded ID above (run in parallel).
+- Call `mcp__notion__API-retrieve-a-database` for each sub-DB using IDs from notion_config.md (run in parallel).
 - For each, find the `Town` property and check `relation.database_id`.
 - It should match `34f61279-b083-8054-9aaf-ce23adfb2a94`. If it still shows `34c61279-b083-8097-9d84-fed2a9c31570` (the Monitoring DB), flag it: "⚠️ [DB name] Town relation still points to Monitoring DB — Zain needs to re-point it."
 

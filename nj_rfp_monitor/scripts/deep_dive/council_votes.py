@@ -33,7 +33,12 @@ from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
 
-from deep_dive.firecrawl_utils import firecrawl_scrape_urls, firecrawl_search
+from deep_dive.firecrawl_utils import (
+    fetch_linked_pdfs,
+    firecrawl_scrape_urls,
+    firecrawl_scrape_with_js,
+    firecrawl_search,
+)
 
 _CRM_PATH          = Path(__file__).parent.parent.parent / "cannabis_hits" / "crm" / "cannabis_crm_enriched.csv"
 _LEGAL_NOTICES_CSV = Path(__file__).parent.parent.parent / "data" / "nj_legal_notices.csv"
@@ -120,15 +125,54 @@ def _scrape_first_good(urls: list[str], min_len: int = 300) -> tuple[str, str]:
     return "", ""
 
 
+_COUNCIL_PDF_KEYWORDS = ["minutes", "ordinance", "council", "governing", "vote", "cannabis"]
+
+
+def _scrape_with_depth2(
+    urls: list[str],
+    keywords: list[str],
+    years: list[str],
+    signal_re: str,
+    min_len: int = 300,
+) -> tuple[str, str]:
+    """Scrape URLs with JS retry + depth-2 PDF following.
+
+    Tries each URL in order:
+      1. Normal Firecrawl content (already done by _scrape_first_good caller)
+      2. JS-rendered retry (for dynamic portals)
+      3. Depth-2 PDF links from the page
+
+    Returns (text, url) of the first hit matching signal_re, or ("", "").
+    """
+    import re as _re
+    for url in urls[:4]:
+        # JS retry for thin/empty pages
+        print(f"      [council:depth2] JS retry: {url[:60]}")
+        text = firecrawl_scrape_with_js(url)
+        if text and len(text) >= min_len and _re.search(signal_re, text, _re.I):
+            print(f"      [council:depth2] JS hit: {url[:60]}")
+            return text, url
+
+        # Depth-2: follow PDF links from index pages
+        pdf_results = fetch_linked_pdfs(url, keywords, years)
+        for pdf_url, pdf_text in pdf_results.items():
+            if pdf_text and len(pdf_text) >= min_len and _re.search(signal_re, pdf_text, _re.I):
+                print(f"      [council:depth2] PDF hit: {pdf_url[:60]}")
+                return pdf_text, pdf_url
+
+    return "", ""
+
+
 def _format_date_variants(date_str: str) -> list[str]:
     """Return multiple human-readable formats for a date string."""
     variants = [date_str]   # always include the raw value
     for fmt_in in ("%Y-%m-%d", "%m/%d/%Y", "%B %d, %Y", "%b %d, %Y"):
         try:
             dt = datetime.strptime(date_str.strip(), fmt_in)
-            variants.append(dt.strftime("%B %-d, %Y"))   # July 13, 2021
-            variants.append(dt.strftime("%-m/%-d/%Y"))   # 7/13/2021
-            variants.append(dt.strftime("%Y-%m-%d"))      # 2021-07-13
+            # Use cross-platform formatting (%-d is Linux-only; strip leading zero manually)
+            variants.append(f"{dt.strftime('%B')} {dt.day}, {dt.year}")   # July 13, 2021
+            variants.append(f"{dt.month}/{dt.day}/{dt.year}")              # 7/13/2021
+            variants.append(dt.strftime("%Y-%m-%d"))                       # 2021-07-13
             break
         except ValueError:
             continue
@@ -223,37 +267,38 @@ def strategy1_ordinance_pdf(town: str, ordinance_number: str) -> tuple[str, str]
     for query in queries:
         print(f"      [council:S1] {query}")
         try:
-            results = firecrawl_search(query, limit=5)
+            results = firecrawl_search(query, limit=3)
         except Exception as e:
             print(f"      [council:S1] search error: {e}")
             continue
 
-        to_scrape, inline = [], {}
-        for r in results:
-            url = r.get("url", "")
-            if not url or url in tried or _is_news_url(url):
-                continue
+        to_scrape = [
+            r.get("url", "") for r in results
+            if r.get("url", "") and r["url"] not in tried and not _is_news_url(r["url"])
+        ]
+        for url in to_scrape:
             tried.add(url)
-            md = r.get("markdown", "")
-            if md and len(md) > 200:
-                inline[url] = md
-            else:
-                to_scrape.append(url)
 
+        text, url = _scrape_first_good(to_scrape)
+        if text and re.search(
+            r"\b(ayes?|nays?|abstain|roll\s*call|voted\s+yes|voted\s+no)\b",
+            text, re.I
+        ):
+            print(f"      [council:S1] roll-call indicators found: {url[:60]}")
+            return text, url
+
+        # Depth-2 / JS retry for pages that look like index listings
         if to_scrape:
-            text, url = _scrape_first_good(to_scrape)
+            years = [str(y) for y in range(datetime.now().year - 3, datetime.now().year + 1)]
+            kw    = _COUNCIL_PDF_KEYWORDS + ([ordinance_number] if ordinance_number else [])
+            text, url = _scrape_with_depth2(
+                to_scrape,
+                keywords=kw,
+                years=years,
+                signal_re=r"\b(ayes?|nays?|abstain|roll\s*call|voted\s+yes|voted\s+no)\b",
+            )
             if text:
-                inline[url] = text
-
-        for url, text in inline.items():
-            if not text or len(text) < 200:
-                continue
-            # Must contain something that looks like a roll-call vote
-            if re.search(
-                r"\b(ayes?|nays?|abstain|roll\s*call|voted\s+yes|voted\s+no)\b",
-                text, re.I
-            ):
-                print(f"      [council:S1] roll-call indicators found: {url[:60]}")
+                print(f"      [council:S1:depth2] roll-call found: {url[:60]}")
                 return text, url
 
     return "", ""
@@ -280,36 +325,38 @@ def strategy2_meeting_minutes(town: str, adopted_date: str) -> tuple[str, str]:
         for query in queries:
             print(f"      [council:S2] {query}")
             try:
-                results = firecrawl_search(query, limit=5)
+                results = firecrawl_search(query, limit=3)
             except Exception as e:
                 print(f"      [council:S2] search error: {e}")
                 continue
 
-            to_scrape, inline = [], {}
-            for r in results:
-                url = r.get("url", "")
-                if not url or url in tried or _is_news_url(url):
-                    continue
+            to_scrape = [
+                r.get("url", "") for r in results
+                if r.get("url", "") and r["url"] not in tried and not _is_news_url(r["url"])
+            ]
+            for url in to_scrape:
                 tried.add(url)
-                md = r.get("markdown", "")
-                if md and len(md) > 200:
-                    inline[url] = md
-                else:
-                    to_scrape.append(url)
 
+            text, url = _scrape_first_good(to_scrape)
+            if text and re.search(
+                r"\b(ayes?|nays?|abstain|roll\s*call|voted\s+yes|voted\s+no|cannabis|ordinance)\b",
+                text, re.I,
+            ):
+                print(f"      [council:S2] minutes found: {url[:60]}")
+                return text, url
+
+            # Depth-2 / JS retry for index listing pages
             if to_scrape:
-                text, url = _scrape_first_good(to_scrape)
+                years = [str(y) for y in range(datetime.now().year - 3, datetime.now().year + 1)]
+                kw    = _COUNCIL_PDF_KEYWORDS + list(set(_format_date_variants(adopted_date)))
+                text, url = _scrape_with_depth2(
+                    to_scrape,
+                    keywords=kw,
+                    years=years,
+                    signal_re=r"\b(ayes?|nays?|abstain|roll\s*call|voted\s+yes|voted\s+no|cannabis|ordinance)\b",
+                )
                 if text:
-                    inline[url] = text
-
-            for url, text in inline.items():
-                if not text or len(text) < 200:
-                    continue
-                if re.search(
-                    r"\b(ayes?|nays?|abstain|roll\s*call|voted\s+yes|voted\s+no|cannabis|ordinance)\b",
-                    text, re.I,
-                ):
-                    print(f"      [council:S2] minutes found: {url[:60]}")
+                    print(f"      [council:S2:depth2] minutes found: {url[:60]}")
                     return text, url
 
     return "", ""
@@ -524,40 +571,26 @@ def find_current_roster(town: str) -> list[dict]:
         query = query_tmpl.format(town=town)
         print(f"      [council] roster search: {query}")
         try:
-            results = firecrawl_search(query, limit=5)
+            results = firecrawl_search(query, limit=3)
         except Exception as e:
             print(f"      [council] roster search error: {e}")
             continue
 
-        to_scrape, inline = [], {}
-        for r in results:
-            url = r.get("url", "")
-            if not url or url in tried or _is_skip_url(url):
-                continue
-            if url.lower().endswith(".pdf"):    # skip PDFs — rosters are web pages
-                continue
+        to_scrape = [
+            r["url"] for r in results
+            if r.get("url") and r["url"] not in tried
+            and not _is_skip_url(r["url"])
+            and not r["url"].lower().endswith(".pdf")
+        ]
+        for url in to_scrape:
             tried.add(url)
-            md = r.get("markdown", "")
-            if md and len(md) > 200:
-                inline[url] = md
-            else:
-                to_scrape.append(url)
-
-        # Sort to_scrape by officialness before scraping
         to_scrape.sort(key=_roster_url_score, reverse=True)
-        if to_scrape:
-            text, url = _scrape_first_good(to_scrape)
-            if text:
-                inline[url] = text
 
-        # Try inline pages in descending URL quality order
-        ranked = sorted(inline.items(), key=lambda kv: _roster_url_score(kv[0]), reverse=True)
-        for url, text in ranked:
-            if not text or len(text) < 100:
-                continue
+        text, best_url = _scrape_first_good(to_scrape)
+        if text:
             members = llm_extract_roster(text, town)
             if members:
-                print(f"      [council] roster: {len(members)} members from {url[:60]}")
+                print(f"      [council] roster: {len(members)} members from {best_url[:60]}")
                 return members
 
     return []
@@ -616,14 +649,11 @@ def enrich_voter_contacts(members: list[dict], town: str) -> list[dict]:
             url = r.get("url", "")
             if not url or _is_skip_url(url) or url.lower().endswith(".pdf"):
                 continue
-            text = r.get("markdown", "") or ""
-            if len(text) < 100:
-                # Scrape if search didn't inline content
-                try:
-                    scraped = firecrawl_scrape_urls([url])
-                    text = scraped.get(url, "")
-                except Exception:
-                    continue
+            try:
+                scraped = firecrawl_scrape_urls([url])
+                text = scraped.get(url, "")
+            except Exception:
+                continue
 
             contact = _llm_extract_contact(text, name)
             email = contact.get("email", "").strip()
